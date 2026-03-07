@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>Writings | Healing with Gia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
+  <style>
+    /* Unified warm ivory background for writings page */
+    body {
+      background-color: #F7F3EE;
+    }
+
+    .page-hero.writings-hero {
+      background: #F7F3EE;
+      padding-bottom: 1rem;
+    }
+
+    .writings-intro {
+      background: #F7F3EE;
+      padding-bottom: 0;
+    }
+
+    .featured-writing {
+      background: #F7F3EE;
+      padding-top: 5rem;
+      border-top: 1px solid rgba(196, 167, 125, 0.25);
+    }
+
+    .writings-grid {
+      background: #F7F3EE;
+    }
+
+    /* Make writing cards fully clickable */
+    .writing-card {
+      cursor: pointer;
+    }
+
+    .writing-card a.read-more {
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Particles -->
+  <div class="particle" style="top: 30%; left: 8%; animation-delay: 0s;"></div>
+  <div class="particle" style="top: 60%; left: 90%; animation-delay: 3s;"></div>
+  <div class="particle" style="top: 80%; left: 40%; animation-delay: 6s;"></div>
+
+  <!-- Sacred Geometry Background -->
+  <svg class="mandala-bg" viewBox="0 0 200 200">
+    <rect x="50" y="50" width="100" height="100" fill="none" stroke="#F5F0E8" stroke-width="0.5" transform="rotate(45 100 100)"/>
+    <rect x="65" y="65" width="70" height="70" fill="none" stroke="#F5F0E8" stroke-width="0.5" transform="rotate(45 100 100)"/>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
+  </svg>
+
+  <!-- Navigation -->
+  <nav class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+      </svg>
+      GIA
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="writings.html" class="active">Writings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero writings-hero">
+    <div class="hero-content">
+      <svg class="hero-symbol" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Pen with Heart -->
+        <path d="M65 15 L75 25 L35 65 L25 70 L30 60 Z" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+        <path d="M60 20 L70 30" stroke="#C4A77D" stroke-width="1"/>
+        <path d="M25 70 L30 60" stroke="#9CAF94" stroke-width="1.5"/>
+        <path d="M50 75 C50 75 40 68 40 60 C40 54 44 50 50 54 C56 50 60 54 60 60 C60 68 50 75 50 75Z" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+        <circle cx="50" cy="60" r="2" fill="#C4A77D" opacity="0.5"/>
+      </svg>
+      <h1>Writings</h1>
+      <p class="page-subtitle">Reflections, wisdom, and guidance for the soul</p>
+    </div>
+  </section>
+
+  <!-- Writings Intro -->
+  <section class="writings-intro">
+    <p class="fade-in">These writings are offerings from my heart to yours—explorations of healing, spirituality, and the art of living well. May they bring you comfort, inspiration, and perhaps a new way of seeing.</p>
+  </section>
+
+  <!-- Featured Writing -->
+  <section class="featured-writing">
+    <div class="featured-content fade-in">
+      <span class="writing-category">Featured</span>
+      <h3>The Art of Being Present: Finding Peace in a Distracted World</h3>
+      <p class="excerpt">"In the space between one breath and the next, there exists an infinite stillness. This is where we find ourselves—not in the rushing thoughts or the endless to-do lists, but in the quiet pause that connects all moments. Learning to rest in this space is perhaps the most radical act of self-care we can practice..."</p>
+      <a href="article.html?id=being-present" class="btn">Read Full Article</a>
+    </div>
+  </section>
+
+  <!-- Writings Grid -->
+  <section class="writings-grid">
+    <div class="writings-container">
+      <!-- Writing 1 -->
+      <article class="writing-card fade-in">
+        <div class="writing-image" style="background: linear-gradient(135deg, #E8EDE6, #F7EEED);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="20" stroke="#9CAF94" stroke-width="1" fill="none"/>
+            <path d="M30 15 L30 45" stroke="#9CAF94" stroke-width="0.5"/>
+            <path d="M15 30 L45 30" stroke="#9CAF94" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Mindfulness</span>
+          <h3>Morning Rituals That Transform Your Day</h3>
+          <p>How the first hour of your day sets the tone for everything that follows, and simple practices to begin with intention.</p>
+          <a href="article.html?id=morning-rituals" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 2 -->
+      <article class="writing-card fade-in delay-1">
+        <div class="writing-image" style="background: linear-gradient(135deg, #E8E4ED, #E8EDE6);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 10 C20 20 15 30 15 40 C15 48 22 55 30 55 C38 55 45 48 45 40 C45 30 40 20 30 10Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Energy</span>
+          <h3>Understanding Your Chakras: A Beginner's Guide</h3>
+          <p>An accessible introduction to the seven main energy centers and how they influence your physical and emotional wellbeing.</p>
+          <a href="article.html?id=chakras-guide" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 3 -->
+      <article class="writing-card fade-in delay-2">
+        <div class="writing-image" style="background: linear-gradient(135deg, #F5F0E8, #E8E4ED);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="30" r="12" stroke="#9CAF94" stroke-width="1" fill="none"/>
+            <circle cx="40" cy="30" r="12" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Relationships</span>
+          <h3>Boundaries as an Act of Love</h3>
+          <p>Why setting healthy boundaries is essential for genuine connection and how to communicate them with compassion.</p>
+          <a href="article.html?id=boundaries-love" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 4 -->
+      <article class="writing-card fade-in">
+        <div class="writing-image" style="background: linear-gradient(135deg, #F7EEED, #F5F0E8);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 45 C15 30 25 20 30 15 C35 20 45 30 45 45" stroke="#C4A77D" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="40" r="8" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Nutrition</span>
+          <h3>Eating with the Seasons: Spring Renewal</h3>
+          <p>Aligning your diet with nature's rhythms to support detoxification, energy, and optimal health during the spring season.</p>
+          <a href="article.html?id=eating-seasons" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 5 -->
+      <article class="writing-card fade-in delay-1">
+        <div class="writing-image" style="background: linear-gradient(135deg, #E8EDE6, #E8E4ED);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="30" rx="20" ry="8" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(30 30 30)"/>
+            <ellipse cx="30" cy="30" rx="20" ry="8" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(90 30 30)"/>
+            <ellipse cx="30" cy="30" rx="20" ry="8" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(150 30 30)"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Meditation</span>
+          <h3>When Meditation Feels Impossible</h3>
+          <p>Practical approaches for those who struggle with traditional meditation and alternative ways to cultivate mindfulness.</p>
+          <a href="article.html?id=meditation-impossible" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 6 -->
+      <article class="writing-card fade-in delay-2">
+        <div class="writing-image" style="background: linear-gradient(135deg, #E8E4ED, #F7EEED);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 10 L35 25 L50 25 L38 35 L42 50 L30 40 L18 50 L22 35 L10 25 L25 25 Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Spirituality</span>
+          <h3>Signs the Universe is Speaking to You</h3>
+          <p>Learning to recognize and interpret the subtle messages and synchronicities that guide us on our path.</p>
+          <a href="article.html?id=universe-speaking" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 7 -->
+      <article class="writing-card fade-in">
+        <div class="writing-image" style="background: linear-gradient(135deg, #F5F0E8, #E8EDE6);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="20" r="10" stroke="#9CAF94" stroke-width="1" fill="none"/>
+            <path d="M30 30 L30 50" stroke="#9CAF94" stroke-width="1"/>
+            <path d="M20 40 L30 35 L40 40" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Self-Care</span>
+          <h3>The Sacred Practice of Rest</h3>
+          <p>Reclaiming rest as essential rather than earned, and creating space for true restoration in your life.</p>
+          <a href="article.html?id=sacred-rest" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 8 -->
+      <article class="writing-card fade-in delay-1">
+        <div class="writing-image" style="background: linear-gradient(135deg, #F7EEED, #E8E4ED);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="18" stroke="#C4A77D" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="30" r="10" stroke="#9CAF94" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="30" r="4" fill="#C4A77D" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Healing</span>
+          <h3>Embracing the Shadow: A Path to Wholeness</h3>
+          <p>How acknowledging and integrating our shadow aspects leads to greater self-acceptance and authentic living.</p>
+          <a href="article.html?id=embracing-shadow" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Writing 9 -->
+      <article class="writing-card fade-in delay-2">
+        <div class="writing-image" style="background: linear-gradient(135deg, #E8EDE6, #F5F0E8);">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 Q30 10 50 50" stroke="#9CAF94" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="30" r="5" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="writing-content">
+          <span class="writing-category">Ayurveda</span>
+          <h3>Living in Harmony with Your Dosha</h3>
+          <p>Practical tips for aligning your daily routines, diet, and activities with your unique constitutional type.</p>
+          <a href="article.html?id=dosha-harmony" class="read-more">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+          </svg>
+          GIA
+        </a>
+        <p>Guiding souls toward wholeness through the sacred connection of mind, body, and spirit.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="writings.html">Writings</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Holistic Coaching</a></li>
+          <li><a href="services.html">Energy Healing</a></li>
+          <li><a href="services.html">Meditation</a></li>
+          <li><a href="services.html">Workshops</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@healingwithgia.com">Email</a></li>
+        </ul>
+        <div class="social-links" style="margin-top: 1rem;">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Healing with Gia. All rights reserved. Made with love and light.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="writings.html">Writings</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <script>
+    // Scroll Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav-container');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

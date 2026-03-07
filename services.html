@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>Services | Healing with Gia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
+  <style>
+    /* Unified pale purple background for services page */
+    body {
+      background-color: #F8F6FB;
+    }
+
+    .page-hero.services-hero {
+      background: #F8F6FB;
+    }
+
+    .services-intro {
+      background: #F8F6FB;
+    }
+
+    .services-grid {
+      background: #F8F6FB;
+    }
+
+    .approach-section {
+      background: #F8F6FB;
+    }
+
+    .home-cta {
+      background: #F8F6FB;
+    }
+
+    /* Consistent font styling */
+    .services-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: normal;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: normal;
+    }
+
+    .services-hero .page-subtitle {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       Reiki Booking Modal
+       ============================================ */
+
+    .reiki-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(74, 69, 67, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .reiki-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .reiki-modal {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 3.5rem;
+      max-width: 920px;
+      width: 90%;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .reiki-modal-overlay.open .reiki-modal {
+      transform: translateY(0);
+    }
+
+    .reiki-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--text-light);
+      padding: 0.25rem 0.4rem;
+      transition: var(--transition);
+    }
+
+    .reiki-modal-close:hover {
+      color: var(--text-dark);
+    }
+
+    .reiki-modal-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+      letter-spacing: normal;
+    }
+
+    .reiki-modal-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin: 0 auto 2.5rem;
+    }
+
+    .reiki-modal-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .reiki-option {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 1.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .reiki-option::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-sage-dark));
+    }
+
+    .reiki-option h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      letter-spacing: normal;
+    }
+
+    .reiki-option p {
+      color: var(--text-light);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+
+    .reiki-option-btn {
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      font-family: 'Questrial', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reiki-option-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--text-dark);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .reiki-option-btn:hover {
+      color: var(--cream);
+    }
+
+    .reiki-option-btn:hover::before {
+      left: 0;
+    }
+
+    /* ============================================
+       Reiki Thank-You Section
+       ============================================ */
+
+    .reiki-thankyou-section {
+      display: none;
+      background: linear-gradient(135deg, var(--soft-sage) 0%, var(--muted-lavender) 100%);
+      padding: 6rem 4rem;
+      text-align: center;
+    }
+
+    .reiki-thankyou-section.visible {
+      display: block;
+    }
+
+    .reiki-thankyou-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .reiki-thankyou-content .section-symbol {
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+
+    .reiki-thankyou-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .reiki-thankyou-content .thankyou-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin: 1.5rem auto;
+    }
+
+    .reiki-thankyou-content p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .reiki-thankyou-content p:last-of-type {
+      margin-bottom: 2.5rem;
+    }
+
+    /* ============================================
+       Meditation Booking Modal (2-column variant)
+       ============================================ */
+
+    .meditation-modal-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    /* ============================================
+       Meditation Thank-You Section
+       ============================================ */
+
+    .meditation-thankyou-section {
+      display: none;
+      background: linear-gradient(135deg, var(--warm-sand) 0%, var(--soft-sage) 100%);
+      padding: 6rem 4rem;
+      text-align: center;
+    }
+
+    .meditation-thankyou-section.visible {
+      display: block;
+    }
+
+    .meditation-thankyou-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .meditation-thankyou-content .section-symbol {
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+
+    .meditation-thankyou-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .meditation-thankyou-content .thankyou-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin: 1.5rem auto;
+    }
+
+    .meditation-thankyou-content p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .meditation-thankyou-content p:last-of-type {
+      margin-bottom: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Particles -->
+  <div class="particle" style="top: 20%; left: 12%; animation-delay: 0s;"></div>
+  <div class="particle" style="top: 50%; left: 88%; animation-delay: 2s;"></div>
+  <div class="particle" style="top: 70%; left: 30%; animation-delay: 4s;"></div>
+
+  <!-- Sacred Geometry Background -->
+  <svg class="mandala-bg" viewBox="0 0 200 200">
+    <polygon points="100,10 180,70 155,160 45,160 20,70" fill="none" stroke="#E8E4ED" stroke-width="0.3"/>
+    <polygon points="100,40 150,75 135,130 65,130 50,75" fill="none" stroke="#E8E4ED" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="40" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
+  </svg>
+
+  <!-- Navigation -->
+  <nav class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+      </svg>
+      GIA
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="writings.html">Writings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero services-hero">
+    <div class="hero-content">
+      <svg class="hero-symbol" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Candle with Flame -->
+        <rect x="40" y="45" width="20" height="40" rx="2" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+        <path d="M50 45 Q42 30 50 18 Q58 30 50 45" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+        <path d="M50 40 Q46 32 50 24 Q54 32 50 40" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <circle cx="50" cy="28" r="2" fill="#C4A77D" opacity="0.5"/>
+        <line x1="45" y1="55" x2="55" y2="55" stroke="#9CAF94" stroke-width="1" opacity="0.4"/>
+        <line x1="45" y1="65" x2="55" y2="65" stroke="#9CAF94" stroke-width="1" opacity="0.4"/>
+        <line x1="45" y1="75" x2="55" y2="75" stroke="#9CAF94" stroke-width="1" opacity="0.4"/>
+        <ellipse cx="50" cy="86" rx="12" ry="3" stroke="#C4A77D" stroke-width="1" fill="none" opacity="0.5"/>
+      </svg>
+      <h1>Sacred Offerings</h1>
+      <p class="page-subtitle">Pathways to wholeness, tailored to your journey</p>
+    </div>
+  </section>
+
+  <!-- Services Intro -->
+  <section class="services-intro">
+    <p class="fade-in">Each service is designed to honor your unique path while addressing the interconnected nature of mind, body, and spirit. Whether you're seeking relief from chronic stress, deeper self-understanding, or a complete wellness transformation, I am here to guide you with compassion and expertise.</p>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-grid">
+    <div class="services-container">
+      <!-- Service 1: Holistic Wellness Coaching -->
+      <div class="service-card fade-in">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="25" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+          <circle cx="30" cy="30" r="15" stroke="#9CAF94" stroke-width="1" fill="none"/>
+          <circle cx="30" cy="30" r="5" fill="#9CAF94" opacity="0.3"/>
+          <path d="M30 5 L30 15 M30 45 L30 55 M5 30 L15 30 M45 30 L55 30" stroke="#C4A77D" stroke-width="1"/>
+        </svg>
+        <h3>Holistic Wellness Coaching</h3>
+        <p>A comprehensive approach to transforming your health from the inside out. Together, we'll explore nutrition, lifestyle, mindset, and spiritual practices to create lasting change.</p>
+        <ul class="service-details">
+          <li>Lab Reading</li>
+          <li>Initial 90-minute deep-dive consultation</li>
+          <li>Personalized wellness plan creation</li>
+          <li>Bi-weekly coaching sessions</li>
+          <li>Ongoing support between sessions</li>
+          <li>Nutritional guidance & meal planning</li>
+          <li>Stress management techniques</li>
+        </ul>
+        <p class="service-price">3-Month Program · Investment begins at $1,500</p>
+        <a href="contact.html" class="btn">Learn More</a>
+      </div>
+
+      <!-- Service: Bodywork -->
+      <div class="service-card fade-in delay-1">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 10 C20 15 15 25 15 35 C15 45 22 50 30 50 C38 50 45 45 45 35 C45 25 40 15 30 10Z" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+          <path d="M20 30 Q30 25 40 30" stroke="#C4A77D" stroke-width="1"/>
+          <path d="M22 38 Q30 33 38 38" stroke="#C4A77D" stroke-width="1"/>
+          <circle cx="30" cy="20" r="3" fill="#C4A77D" opacity="0.4"/>
+        </svg>
+        <h3>Bodywork</h3>
+        <p>Therapeutic body treatments designed to restore balance, release tension, and promote physical wellness through hands-on healing techniques.</p>
+        <ul class="service-details">
+          <li>Acupressure</li>
+          <li>Lymphatic Drainage</li>
+          <li>Neuro Cupping</li>
+          <li>Weight Management Program</li>
+          <li>Wood Massage</li>
+          <li>Body Sculpting</li>
+          <li>Ion Detox Foot Spa</li>
+          <li>Facial Massage</li>
+          <li>Red Light Therapy</li>
+          <li>LED Light Therapy</li>
+        </ul>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; align-items:flex-start;">
+          <a href="contact.html" class="btn btn-light">Book a Consultation First</a>
+          <a href="javascript:void(0)" class="btn" id="bodyworkBookBtn">Book Session</a>
+        </div>
+      </div>
+
+      <!-- Service 2: Energy Healing -->
+      <div class="service-card fade-in delay-1">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 5 C15 15 10 30 10 40 C10 50 20 55 30 55 C40 55 50 50 50 40 C50 30 45 15 30 5Z" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+          <path d="M30 15 C22 22 18 32 18 40 C18 46 24 50 30 50 C36 50 42 46 42 40 C42 32 38 22 30 15Z" stroke="#C4A77D" stroke-width="1" fill="none" opacity="0.6"/>
+          <circle cx="30" cy="38" r="6" fill="#C4A77D" opacity="0.3"/>
+        </svg>
+        <h3>Reiki Energy Healing</h3>
+        <p>Experience the gentle yet profound power of Reiki to restore energetic balance, release emotional blockages, and activate your body's natural healing abilities.</p>
+        <ul class="service-details">
+          <li>Pre-session intention setting</li>
+          <li>60-minute hands-on or distance healing</li>
+          <li>Chakra balancing & clearing</li>
+          <li>Intuitive messages & guidance</li>
+          <li>Post-session integration support</li>
+        </ul>
+        <p class="service-price">Single Session · $120 | Package of 4 · $420</p>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; align-items:flex-start;">
+          <a href="contact.html" class="btn btn-light">Book a Consultation First</a>
+          <a href="javascript:void(0)" class="btn" id="reikiBookBtn">Book Session</a>
+        </div>
+      </div>
+
+      <!-- Service 3: Meditation & Mindfulness -->
+      <div class="service-card fade-in">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#9CAF94" stroke-width="1.5" fill="none" transform="rotate(60 30 30)"/>
+          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#9CAF94" stroke-width="1.5" fill="none" transform="rotate(120 30 30)"/>
+          <circle cx="30" cy="30" r="8" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          <circle cx="30" cy="30" r="3" fill="#C4A77D" opacity="0.4"/>
+        </svg>
+        <h3>Meditation & Mindfulness Training</h3>
+        <p>Learn time-tested meditation techniques tailored to your lifestyle. Cultivate inner peace, mental clarity, and emotional resilience through consistent practice.</p>
+        <ul class="service-details">
+          <li>Personalized meditation style assessment</li>
+          <li>One-on-one guided sessions</li>
+          <li>Breathwork & pranayama techniques</li>
+          <li>Mindfulness integration for daily life</li>
+        </ul>
+        <p class="service-price">6-Week Program · $600 | Drop-in Session · $85</p>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; align-items:flex-start;">
+          <a href="contact.html" class="btn btn-light">Book a Consultation First</a>
+          <a href="javascript:void(0)" class="btn" id="meditationBookBtn">Begin Practice</a>
+        </div>
+      </div>
+
+      <!-- Service 4: Spiritual Mentorship -->
+      <div class="service-card fade-in delay-1">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 5 L35 22 L55 22 L40 33 L45 52 L30 40 L15 52 L20 33 L5 22 L25 22 Z" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+          <circle cx="30" cy="28" r="6" stroke="#9CAF94" stroke-width="1" fill="none"/>
+        </svg>
+        <h3>Spiritual Mentorship</h3>
+        <p>For those seeking deeper spiritual connection and purpose. This intimate mentorship supports your awakening journey with wisdom, ritual, and sacred practices.</p>
+        <ul class="service-details">
+          <li>Hypnotherapy</li>
+          <li>Weekly 75-minute sessions</li>
+          <li>Personalized spiritual guidance & intuitive mentoring</li>
+          <li>Integration of spiritual insight into daily life</li>
+        </ul>
+        <p class="service-price">6-Month Journey · $3,200</p>
+        <a href="contact.html" class="btn">Inquire Within</a>
+      </div>
+
+      <!-- Service 6: Group Workshops -->
+      <div class="service-card fade-in delay-1">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="15" r="8" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+          <circle cx="15" cy="35" r="8" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+          <circle cx="45" cy="35" r="8" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+          <circle cx="22" cy="50" r="8" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
+          <circle cx="38" cy="50" r="8" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+        </svg>
+        <h3>Group Workshops & Circles</h3>
+        <p>Connect with a community of like-minded souls in these transformative group experiences. From meditation circles to wellness workshops, find your tribe.</p>
+        <ul class="service-details">
+          <li>Monthly New Moon Intention Circles</li>
+          <li>Seasonal Wellness Workshops</li>
+          <li>Introduction to Meditation Series</li>
+          <li>Women's Healing Circles</li>
+          <li>Corporate Wellness Programs</li>
+        </ul>
+        <p class="service-price">Varies by event · See Events page for schedule</p>
+        <a href="events.html" class="btn">View Events</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Reiki Thank-You Section (shown after successful Stripe payment) -->
+  <section id="reikiThankyou" class="reiki-thankyou-section">
+    <div class="reiki-thankyou-content">
+      <svg class="section-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 5 C15 15 10 30 10 40 C10 50 20 55 30 55 C40 55 50 50 50 40 C50 30 45 15 30 5Z" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+        <path d="M30 15 C22 22 18 32 18 40 C18 46 24 50 30 50 C36 50 42 46 42 40 C42 32 38 22 30 15Z" stroke="#C4A77D" stroke-width="1" fill="none" opacity="0.6"/>
+        <circle cx="30" cy="38" r="6" fill="#C4A77D" opacity="0.3"/>
+      </svg>
+      <h2>Your Session is Confirmed</h2>
+      <div class="thankyou-divider"></div>
+      <p>Thank you for booking your Reiki healing session. A confirmation has been sent to your email with all the details you need.</p>
+      <p>Take a moment to breathe and prepare yourself for this sacred journey inward. I look forward to holding space for your healing.</p>
+      <a href="index.html" class="btn">Return Home</a>
+    </div>
+  </section>
+
+  <!-- Meditation Thank-You Section (shown after successful Stripe payment) -->
+  <section id="meditationThankyou" class="meditation-thankyou-section">
+    <div class="meditation-thankyou-content">
+      <svg class="section-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#C4A77D" stroke-width="1.5" fill="none"/>
+        <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#C4A77D" stroke-width="1.5" fill="none" transform="rotate(60 30 30)"/>
+        <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#C4A77D" stroke-width="1.5" fill="none" transform="rotate(120 30 30)"/>
+        <circle cx="30" cy="30" r="8" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="30" r="3" fill="#C4A77D" opacity="0.4"/>
+      </svg>
+      <h2>Your Practice Begins</h2>
+      <div class="thankyou-divider"></div>
+      <p>Thank you for investing in your inner journey. A confirmation with all the details has been sent to your email.</p>
+      <p>Take a breath. You've taken a beautiful step toward stillness and clarity. I look forward to guiding your practice.</p>
+      <a href="index.html" class="btn">Return Home</a>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="approach-section">
+    <div class="approach-content">
+      <div class="section-header">
+        <svg class="section-symbol" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="20" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
+          <path d="M25 5 L25 45 M5 25 L45 25" stroke="#C4A77D" stroke-width="0.3"/>
+        </svg>
+        <h2>The Healing Journey</h2>
+        <div class="divider"></div>
+        <p>Every transformation follows a sacred path of unfolding</p>
+      </div>
+      <div class="approach-steps">
+        <div class="approach-step fade-in">
+          <div class="step-number">01</div>
+          <h4>Connect</h4>
+          <p>We begin with a heart-centered conversation to understand your needs and intentions</p>
+        </div>
+        <div class="approach-step fade-in delay-1">
+          <div class="step-number">02</div>
+          <h4>Discover</h4>
+          <p>Together we explore the root causes and patterns that are ready for transformation</p>
+        </div>
+        <div class="approach-step fade-in delay-2">
+          <div class="step-number">03</div>
+          <h4>Transform</h4>
+          <p>Through personalized practices and support, lasting change begins to take root</p>
+        </div>
+        <div class="approach-step fade-in delay-3">
+          <div class="step-number">04</div>
+          <h4>Integrate</h4>
+          <p>New ways of being become embodied as you step into your wholeness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="home-cta">
+    <div class="cta-content fade-in">
+      <svg class="section-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="25" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <path d="M30 15 L30 45 M15 30 L45 30" stroke="#C4A77D" stroke-width="0.5"/>
+        <circle cx="30" cy="30" r="10" fill="#C4A77D" opacity="0.1"/>
+      </svg>
+      <h2>Not Sure Where to Start?</h2>
+      <p>Book a complimentary 20-minute discovery call. We'll discuss your goals and find the perfect starting point for your journey.</p>
+      <a href="contact.html" class="btn">Schedule Free Call</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+          </svg>
+          GIA
+        </a>
+        <p>Guiding souls toward wholeness through the sacred connection of mind, body, and spirit.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="writings.html">Writings</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Holistic Coaching</a></li>
+          <li><a href="services.html">Energy Healing</a></li>
+          <li><a href="services.html">Meditation</a></li>
+          <li><a href="services.html">Workshops</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@healingwithgia.com">Email</a></li>
+        </ul>
+        <div class="social-links" style="margin-top: 1rem;">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Healing with Gia. All rights reserved. Made with love and light.</p>
+    </div>
+  </footer>
+
+  <!-- Bodywork Booking Modal -->
+  <div id="bodyworkModal" class="reiki-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bodyworkModalHeadline">
+    <div class="reiki-modal">
+      <button class="reiki-modal-close" id="bodyworkModalClose" aria-label="Close">&times;</button>
+      <p style="text-align:center; font-style:italic; color:#9CAF94; font-size:0.9rem; margin-bottom:1rem; letter-spacing:0.03em;">Sessions can only be provided after consultation</p>
+      <h2 class="reiki-modal-headline" id="bodyworkModalHeadline">Book Your Bodywork Session</h2>
+      <div class="reiki-modal-divider"></div>
+      <div class="reiki-modal-options">
+
+        <!-- Option 1: Book Session -->
+        <div class="reiki-option">
+          <h3>Bodywork Session</h3>
+          <p>Therapeutic hands-on healing tailored to your needs</p>
+          <a href="https://buy.stripe.com/fZu00ifDpb64anD7n2dUY04" class="reiki-option-btn">Book Session</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Reiki Booking Modal -->
+  <div id="reikiModal" class="reiki-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reikiModalHeadline">
+    <div class="reiki-modal">
+      <button class="reiki-modal-close" id="reikiModalClose" aria-label="Close">&times;</button>
+      <p style="text-align:center; font-style:italic; color:#9CAF94; font-size:0.9rem; margin-bottom:1rem; letter-spacing:0.03em;">Sessions can only be provided after consultation</p>
+      <h2 class="reiki-modal-headline" id="reikiModalHeadline">Select Your Reiki Experience</h2>
+      <div class="reiki-modal-divider"></div>
+      <div class="reiki-modal-options">
+
+        <!-- Option 1: Single Session -->
+        <div class="reiki-option">
+          <h3>Single Session – $120</h3>
+          <p>60-minute Reiki healing session</p>
+          <a href="https://buy.stripe.com/8x200igHt0rqdzP0YEdUY00" class="reiki-option-btn">Book Single Session</a>
+        </div>
+
+        <!-- Option 2: Package of 4 -->
+        <div class="reiki-option">
+          <h3>Package of 4 – $420</h3>
+          <p>Four 60-minute sessions (best value)</p>
+          <a href="https://buy.stripe.com/dRm3cu76T8XW2Vb6iYdUY01" class="reiki-option-btn">Purchase Package</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Meditation Booking Modal -->
+  <div id="meditationModal" class="reiki-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="meditationModalHeadline">
+    <div class="reiki-modal">
+      <button class="reiki-modal-close" id="meditationModalClose" aria-label="Close">&times;</button>
+      <h2 class="reiki-modal-headline" id="meditationModalHeadline">Select Your Meditation Experience</h2>
+      <div class="reiki-modal-divider"></div>
+      <div class="meditation-modal-options">
+
+        <!-- Option 1: 6-Week Program -->
+        <div class="reiki-option">
+          <h3>6-Week Meditation Program – $600</h3>
+          <p>Structured guided journey for deeper transformation</p>
+          <a href="https://buy.stripe.com/6oU6oG4YL5LK9jz8r6dUY03" class="reiki-option-btn">Join 6-Week Program</a>
+        </div>
+
+        <!-- Option 2: Drop-In Session -->
+        <div class="reiki-option">
+          <h3>Meditation Drop-In Session – $85</h3>
+          <p>Single guided meditation session</p>
+          <a href="https://buy.stripe.com/5kQdR8dvh6POeDT8r6dUY02" class="reiki-option-btn">Book Drop-In Session</a>
+        </div>
+
+        <!-- Option 3: Payment Plan -->
+        <div class="reiki-option">
+          <h3>Package Payment Plan – 2 Months</h3>
+          <p>Split your $600 program into two monthly installments</p>
+          <a href="https://buy.stripe.com/cNidR89f1gqobrH22IdUY08" class="reiki-option-btn">Choose Payment Plan</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="writings.html">Writings</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <script>
+    // Scroll Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav-container');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    }
+
+    // ── Bodywork Booking Modal ───────────────────────────────────────────
+    const bodyworkBookBtn    = document.getElementById('bodyworkBookBtn');
+    const bodyworkModal      = document.getElementById('bodyworkModal');
+    const bodyworkModalClose = document.getElementById('bodyworkModalClose');
+
+    function openBodyworkModal() {
+      bodyworkModal.classList.add('open');
+      bodyworkModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBodyworkModal() {
+      bodyworkModal.classList.remove('open');
+      bodyworkModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (bodyworkBookBtn) {
+      bodyworkBookBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openBodyworkModal();
+      });
+    }
+
+    if (bodyworkModalClose) {
+      bodyworkModalClose.addEventListener('click', closeBodyworkModal);
+    }
+
+    if (bodyworkModal) {
+      bodyworkModal.addEventListener('click', function (e) {
+        if (e.target === bodyworkModal) {
+          closeBodyworkModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && bodyworkModal.classList.contains('open')) {
+          closeBodyworkModal();
+        }
+      });
+    }
+
+    // ── Reiki Booking Modal ──────────────────────────────────────────────
+    const reikiBookBtn   = document.getElementById('reikiBookBtn');
+    const reikiModal     = document.getElementById('reikiModal');
+    const reikiModalClose = document.getElementById('reikiModalClose');
+
+    function openReikiModal() {
+      reikiModal.classList.add('open');
+      reikiModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReikiModal() {
+      reikiModal.classList.remove('open');
+      reikiModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (reikiBookBtn) {
+      reikiBookBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openReikiModal();
+      });
+    }
+
+    if (reikiModalClose) {
+      reikiModalClose.addEventListener('click', closeReikiModal);
+    }
+
+    if (reikiModal) {
+      // Click on backdrop closes modal
+      reikiModal.addEventListener('click', function (e) {
+        if (e.target === reikiModal) {
+          closeReikiModal();
+        }
+      });
+
+      // Escape key closes modal
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && reikiModal.classList.contains('open')) {
+          closeReikiModal();
+        }
+      });
+    }
+
+    // ── Post-payment thank-you reveal (Reiki) ────────────────────────────
+    // Configure your Stripe success URL to:
+    //   https://yoursite.com/services.html?payment=success#reikiThankyou
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('payment') === 'success') {
+      const thankyouSection = document.getElementById('reikiThankyou');
+      if (thankyouSection) {
+        thankyouSection.classList.add('visible');
+        setTimeout(function () {
+          thankyouSection.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+
+    // ── Meditation Booking Modal ─────────────────────────────────────────
+    const meditationBookBtn    = document.getElementById('meditationBookBtn');
+    const meditationModal      = document.getElementById('meditationModal');
+    const meditationModalClose = document.getElementById('meditationModalClose');
+
+    function openMeditationModal() {
+      meditationModal.classList.add('open');
+      meditationModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMeditationModal() {
+      meditationModal.classList.remove('open');
+      meditationModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (meditationBookBtn) {
+      meditationBookBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openMeditationModal();
+      });
+    }
+
+    if (meditationModalClose) {
+      meditationModalClose.addEventListener('click', closeMeditationModal);
+    }
+
+    if (meditationModal) {
+      meditationModal.addEventListener('click', function (e) {
+        if (e.target === meditationModal) {
+          closeMeditationModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && meditationModal.classList.contains('open')) {
+          closeMeditationModal();
+        }
+      });
+    }
+
+    // ── Post-payment thank-you reveal (Meditation) ───────────────────────
+    // Configure your Stripe success URL to:
+    //   https://yoursite.com/services.html?meditation=success#meditationThankyou
+    if (urlParams.get('meditation') === 'success') {
+      const meditationThankyou = document.getElementById('meditationThankyou');
+      if (meditationThankyou) {
+        meditationThankyou.classList.add('visible');
+        setTimeout(function () {
+          meditationThankyou.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  </script>
+</body>
+</html>

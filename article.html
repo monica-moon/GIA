@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>Article | Healing with Gia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
+  <style>
+    body {
+      background-color: #F7F3EE;
+    }
+
+    .page-hero.article-hero {
+      background: #F7F3EE;
+    }
+
+    .article-body {
+      background: #F7F3EE;
+      padding: 2rem 4rem 4rem;
+    }
+
+    .article-content {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .article-content .category {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-sage-dark);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .article-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+
+    .article-content p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .article-content p:first-of-type::first-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      float: left;
+      line-height: 1;
+      margin-right: 0.5rem;
+      color: var(--accent-gold);
+    }
+
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+    }
+
+    .article-back:hover {
+      color: var(--text-dark);
+    }
+
+    .article-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin: 2.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Particles -->
+  <div class="particle" style="top: 30%; left: 8%; animation-delay: 0s;"></div>
+  <div class="particle" style="top: 60%; left: 90%; animation-delay: 3s;"></div>
+  <div class="particle" style="top: 80%; left: 40%; animation-delay: 6s;"></div>
+
+  <!-- Sacred Geometry Background -->
+  <svg class="mandala-bg" viewBox="0 0 200 200">
+    <rect x="50" y="50" width="100" height="100" fill="none" stroke="#F5F0E8" stroke-width="0.5" transform="rotate(45 100 100)"/>
+    <rect x="65" y="65" width="70" height="70" fill="none" stroke="#F5F0E8" stroke-width="0.5" transform="rotate(45 100 100)"/>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
+  </svg>
+
+  <!-- Navigation -->
+  <nav class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+      </svg>
+      GIA
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="writings.html" class="active">Writings</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Article Content -->
+  <section class="page-hero article-hero">
+    <div class="hero-content" style="max-width: 750px;">
+      <a href="writings.html" class="article-back">&larr; Back to Writings</a>
+      <span id="article-category" class="writing-category"></span>
+      <h1 id="article-title"></h1>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="article-content" id="article-content">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+          </svg>
+          GIA
+        </a>
+        <p>Guiding souls toward wholeness through the sacred connection of mind, body, and spirit.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="writings.html">Writings</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Holistic Coaching</a></li>
+          <li><a href="services.html">Energy Healing</a></li>
+          <li><a href="services.html">Meditation</a></li>
+          <li><a href="services.html">Workshops</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@healingwithgia.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Healing with Gia. All rights reserved. Made with love and light.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="writings.html">Writings</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <script>
+    const articles = {
+      'being-present': {
+        category: 'Featured',
+        title: 'The Art of Being Present: Finding Peace in a Distracted World',
+        content: `
+          <p>In the space between one breath and the next, there exists an infinite stillness. This is where we find ourselves. Not in the rushing thoughts or the endless to-do lists, but in the quiet pause that connects all moments. Learning to rest in this space is perhaps the most radical act of self-care we can practice.</p>
+          <p>We live in an age of constant stimulation. Our phones buzz with notifications, our minds race with plans and worries, and our bodies carry the tension of trying to keep up with it all. Yet beneath this surface noise, there is a deep well of peace waiting to be discovered. It has always been there. Patient, unchanging, eternal.</p>
+          <div class="article-divider"></div>
+          <p>Presence is not something we need to create or achieve. It is our natural state, the ground from which all experience arises. When we sit quietly and allow our attention to rest in the here and now, we are not adding something new. We are simply returning home.</p>
+          <p>Begin with small moments throughout your day. As you drink your morning tea, feel the warmth of the cup in your hands. As you walk to your car, notice the sensation of your feet meeting the earth. As you listen to a loved one speak, give them the gift of your full attention. These small acts of presence accumulate like drops of water, eventually filling the vessel of your life with a quiet, abiding peace.</p>
+          <p>The practice of presence also asks us to be with what is uncomfortable. When anxiety arises, rather than pushing it away or distracting ourselves, we can turn toward it with curiosity and compassion. "What are you trying to tell me?" we might ask. Often, our discomfort carries wisdom, a message from our deeper self that something needs attention or care.</p>
+          <p>Remember: you do not need to meditate for hours or retreat to a mountaintop to find peace. Peace is available to you right now, in this very moment. All you need to do is pause, breathe, and arrive fully where you already are.</p>
+        `
+      },
+      'morning-rituals': {
+        category: 'Mindfulness',
+        title: 'Morning Rituals That Transform Your Day',
+        content: `
+          <p>How the first hour of your day unfolds sets the energetic tone for everything that follows. When we begin with intention rather than reaction, rather than reaching for our phone and scrolling through the news, we reclaim our power to shape the day ahead.</p>
+          <p>A sacred morning ritual does not need to be elaborate or time-consuming. Even ten minutes of deliberate practice can shift your entire experience. The key is consistency and presence. Showing up for yourself before the world asks anything of you.</p>
+          <div class="article-divider"></div>
+          <p>Consider beginning with stillness. Before your feet touch the floor, take three deep breaths. Place your hand over your heart and set a simple intention for the day. It might be "I choose peace today" or "I am open to whatever arises." This small act anchors your nervous system and signals to your body that you are safe.</p>
+          <p>Movement is another powerful morning practice. Whether it's gentle stretching, yoga, or a walk in nature, moving your body in the morning helps release the stagnant energy of sleep and invites fresh vitality into your cells. Even five minutes of conscious movement can shift your mood and energy dramatically.</p>
+          <p>Journaling, even briefly, creates a sacred container for your inner world. Write down three things you are grateful for, or simply free-write whatever comes to mind. This practice helps process emotions, clarify intentions, and strengthen your connection to your intuitive voice.</p>
+          <p>Finally, nourish your body with care. A warm glass of lemon water, a mindfully prepared breakfast, or even a cup of herbal tea sipped in silence. These acts of self-nourishment communicate to your whole being that you are worthy of care and attention.</p>
+        `
+      },
+      'chakras-guide': {
+        category: 'Energy',
+        title: 'Understanding Your Chakras: A Beginner\'s Guide',
+        content: `
+          <p>Ancient wisdom traditions have long recognized that the human body is not merely physical. It is also an intricate system of energy. The chakras, seven primary energy centers aligned along the spine, serve as gateways between our physical, emotional, and spiritual dimensions.</p>
+          <p>Understanding your chakras is not about adopting a belief system. It is about developing a practical map for self-awareness. When you learn to sense where energy flows freely and where it feels stuck, you gain a powerful tool for understanding your own patterns, emotions, and physical experiences.</p>
+          <div class="article-divider"></div>
+          <p>The Root Chakra, located at the base of the spine, governs our sense of safety and belonging. When balanced, we feel grounded and secure. The Sacral Chakra, in the lower abdomen, relates to creativity, pleasure, and emotional flow. The Solar Plexus Chakra, at the stomach, is our center of personal power and confidence.</p>
+          <p>The Heart Chakra bridges the lower and upper chakras, governing love, compassion, and connection. The Throat Chakra relates to authentic expression and truth. The Third Eye Chakra, between the eyebrows, governs intuition and inner wisdom. And the Crown Chakra, at the top of the head, connects us to something greater than ourselves.</p>
+          <p>To begin working with your chakras, simply bring your attention to each area during meditation. Notice what you feel. Warmth, tingling, tightness, or openness. There is no wrong answer. The practice of paying attention is itself the healing.</p>
+          <p>Over time, you may notice patterns: perhaps your throat tightens when you hold back your truth, or your stomach clenches when you feel disempowered. These signals are invitations to bring compassion and awareness to the parts of yourself that need attention.</p>
+        `
+      },
+      'boundaries-love': {
+        category: 'Relationships',
+        title: 'Boundaries as an Act of Love',
+        content: `
+          <p>Setting boundaries is one of the most misunderstood aspects of healthy relationships. Many of us were taught that love means self-sacrifice, that saying "no" is selfish, and that our worth depends on how much we give. But true love, the kind that nourishes rather than depletes, requires honoring our own limits.</p>
+          <p>A boundary is not a wall. It is a clear, compassionate communication about what you need to feel safe and whole. When you set a boundary, you are not pushing someone away. You are creating the conditions under which genuine connection can flourish.</p>
+          <div class="article-divider"></div>
+          <p>Consider the garden metaphor: a garden without a fence is vulnerable to anything that wanders in. The fence does not prevent beauty from growing. It protects and preserves it. Your boundaries serve the same purpose for your inner landscape.</p>
+          <p>Begin by tuning into your body. When someone asks something of you, pause before responding. Notice what happens in your chest, your stomach, your shoulders. Your body is remarkably honest. It will tell you when something feels right and when it feels like too much.</p>
+          <p>Communicating boundaries requires courage and practice. Use clear, kind language: "I love spending time with you, and I also need some quiet evenings to recharge." No justification or apology is needed. Your needs are valid simply because they are yours.</p>
+          <p>Remember that healthy boundaries may feel uncomfortable at first, especially if you are accustomed to people-pleasing. Discomfort is not a sign that you are doing something wrong. It is often a sign that you are growing into a more authentic version of yourself.</p>
+        `
+      },
+      'eating-seasons': {
+        category: 'Nutrition',
+        title: 'Eating with the Seasons: Spring Renewal',
+        content: `
+          <p>Aligning your diet with nature's rhythms is one of the most intuitive and powerful things you can do for your health. For thousands of years, cultures around the world have understood that each season calls for different nourishment, and spring is the season of renewal, cleansing, and fresh beginnings.</p>
+          <p>After the heaviness of winter, our bodies naturally crave lightness. Spring is a time to gently release what has accumulated, both physical and emotional, and make space for new energy to flow. This is not about restriction or deprivation. It is about listening to the intelligence of your body and the wisdom of the earth.</p>
+          <div class="article-divider"></div>
+          <p>Bitter greens are spring's great gift. Dandelion, arugula, watercress, and mustard greens gently stimulate the liver and support the body's natural detoxification processes. Incorporate them into salads, smoothies, or lightly sauteed with garlic and lemon.</p>
+          <p>Sprouted foods carry the concentrated energy of new growth. Add sprouts to your meals, soak and sprout your grains before cooking, and embrace the tender young vegetables that appear at farmers' markets like asparagus, peas, artichokes, and radishes.</p>
+          <p>Warm lemon water in the morning supports digestion and gently awakens the body. Herbal teas with ginger, turmeric, and peppermint help stimulate circulation and clear stagnation. Reduce heavy, oily foods and increase meals that feel light, fresh, and vibrant.</p>
+          <p>Most importantly, let your eating be a mindful practice. Sit down to eat. Chew slowly. Notice the flavors, textures, and colors of your food. When we eat with awareness, our bodies naturally guide us toward what we need.</p>
+        `
+      },
+      'meditation-impossible': {
+        category: 'Meditation',
+        title: 'When Meditation Feels Impossible',
+        content: `
+          <p>Perhaps the most common thing I hear from new clients is some version of: "I've tried meditation, but I just can't do it. My mind won't stop." If this resonates with you, I want you to know something important: you are not failing at meditation. You may simply need a different approach.</p>
+          <p>The popular image of meditation, sitting perfectly still with an empty mind, is, for most people, neither realistic nor necessary. Meditation is not about achieving a blank state. It is about developing a new relationship with your thoughts, learning to observe them without being carried away.</p>
+          <div class="article-divider"></div>
+          <p>If sitting still feels impossible, try walking meditation. Walk slowly and deliberately, feeling each foot connect with the earth. Match your breath to your steps. This practice is especially powerful for people with restless energy or anxiety.</p>
+          <p>If silence feels overwhelming, try guided meditation or sound-based practices. Listening to a singing bowl, gentle music, or a guided body scan gives the mind something to anchor to, making the practice feel more accessible and less intimidating.</p>
+          <p>Body-based practices like progressive muscle relaxation or yoga nidra (yogic sleep) can be profound doorways into stillness for those who struggle with traditional sitting meditation. Lying down is perfectly acceptable, despite what you may have been told.</p>
+          <p>Start small. Two minutes is enough. Set a timer, close your eyes, and simply notice your breath. When your mind wanders (and it will) gently guide it back without judgment. That moment of noticing you have wandered IS the meditation. Each return is a small act of choosing presence.</p>
+          <p>Be patient with yourself. Like any skill, meditation deepens with practice. There is no such thing as a "bad" meditation. Every time you show up, you are strengthening your capacity for awareness, compassion, and peace.</p>
+        `
+      },
+      'universe-speaking': {
+        category: 'Spirituality',
+        title: 'Signs the Universe is Speaking to You',
+        content: `
+          <p>Learning to recognize and interpret the subtle messages and synchronicities that guide us on our path is one of the most enriching aspects of spiritual life. The universe is always communicating through symbols, patterns, feelings, and moments of uncanny coincidence. The question is not whether these messages exist, but whether we are paying attention.</p>
+          <p>Synchronicity, a term coined by Carl Jung, refers to meaningful coincidences that cannot be explained by cause and effect alone. You think of someone and they call. You ask for guidance and a book falls open to exactly the passage you needed. These are not random events. They are invitations to trust the unseen intelligence that weaves through all of life.</p>
+          <div class="article-divider"></div>
+          <p>Recurring numbers are one of the most commonly reported signs. Seeing 11:11, 222, or 333 repeatedly is often interpreted as confirmation that you are on the right path. Rather than looking up rigid meanings, notice how you feel when you see them. Your emotional response is the truest guide.</p>
+          <p>Animals and nature are powerful messengers. A hawk circling overhead, a butterfly landing nearby, an unusual encounter with an animal. These moments carry symbolic meaning that varies by culture and personal significance. Pay attention to what creatures appear in your life and what they might represent for you.</p>
+          <p>Dreams are perhaps the most intimate form of universal communication. Keep a journal by your bed and write down any dreams immediately upon waking. Over time, patterns and messages will become clearer. Your dreaming mind speaks in symbols and metaphors, and learning its language is a beautiful act of self-discovery.</p>
+          <p>The key to receiving guidance is cultivating an attitude of openness and trust. You do not need to force or seek signs obsessively. Simply set an intention to be receptive, and then go about your life with awareness. The messages will find you.</p>
+        `
+      },
+      'sacred-rest': {
+        category: 'Self-Care',
+        title: 'The Sacred Practice of Rest',
+        content: `
+          <p>Reclaiming rest as essential rather than earned is one of the most revolutionary things we can do in a culture that glorifies productivity. We have been conditioned to believe that our worth is measured by our output, that rest must be justified, that stillness is laziness. This belief is not only false; it is harmful to our bodies, minds, and spirits.</p>
+          <p>Rest is not the absence of productivity. It is a vital, active process during which our bodies heal, our minds integrate experiences, and our spirits replenish. Without adequate rest, everything else we do is diminished. Our creativity, our relationships, our capacity for joy.</p>
+          <div class="article-divider"></div>
+          <p>There are many forms of rest, and we need all of them. Physical rest includes sleep and gentle movement. Mental rest means stepping away from stimulation and allowing our thoughts to settle. Emotional rest involves giving ourselves permission to feel without fixing or performing. Spiritual rest comes from connecting to something larger than our individual concerns.</p>
+          <p>Create rituals around rest to make it sacred. Designate a corner of your home as a resting space. A comfortable chair, a soft blanket, perhaps a candle. When you enter this space, you are giving yourself permission to simply be. No agenda. No goals. Just being.</p>
+          <p>Notice the stories you tell yourself about rest. "I should be doing something productive." "I'll rest when everything is done." "Other people need me." These narratives, while familiar, are not truths. They are habits of thought that can be gently questioned and released.</p>
+          <p>Begin with small acts of rest woven into your day. A five-minute pause between tasks. A few deep breaths before a meal. An evening without screens. As you practice, you may discover that rest does not diminish your life. It enriches it beyond measure.</p>
+        `
+      },
+      'embracing-shadow': {
+        category: 'Healing',
+        title: 'Embracing the Shadow: A Path to Wholeness',
+        content: `
+          <p>How acknowledging and integrating our shadow aspects leads to greater self-acceptance and authentic living is one of the most transformative insights in the journey of healing. The shadow, as Carl Jung described it, contains all the parts of ourselves that we have rejected, repressed, or hidden from view. Not because they are inherently bad, but because at some point we learned they were unacceptable.</p>
+          <p>Our shadow might hold our anger, our grief, our fierce desires, our vulnerability. It might contain gifts we were told were "too much," like our passion, our sensitivity, our wildness. When we deny these parts, they do not disappear. They go underground, where they influence our behavior, relationships, and wellbeing in ways we cannot see.</p>
+          <div class="article-divider"></div>
+          <p>Shadow work is the practice of bringing these hidden aspects into the light of awareness. Not to judge them, but to understand and integrate them. It is some of the deepest, most rewarding work we can do on the path to wholeness.</p>
+          <p>Begin by noticing your emotional triggers. What qualities in others irritate or repel you? Often, these are reflections of shadow aspects within ourselves that we have not yet acknowledged. This is not about blame. It is about curiosity and compassion.</p>
+          <p>Journaling is a powerful shadow work tool. Write unsent letters to the parts of yourself you have rejected. Ask your shadow what it needs. Listen without judgment. You may be surprised by the wisdom that emerges from the places you have been most afraid to look.</p>
+          <p>Integration does not mean acting on every impulse. It means acknowledging the full spectrum of your humanity with acceptance and love. When we embrace our shadow, we become more whole, more compassionate, and more authentically ourselves. We stop spending energy on suppression and redirect it toward living fully.</p>
+        `
+      },
+      'dosha-harmony': {
+        category: 'Ayurveda',
+        title: 'Living in Harmony with Your Dosha',
+        content: `
+          <p>Practical tips for aligning your daily routines, diet, and activities with your unique constitutional type form the foundation of Ayurvedic living. Ayurveda, the ancient Indian science of life, teaches that each person is born with a unique combination of three doshas (Vata, Pitta, and Kapha) that shapes their physical, mental, and emotional characteristics.</p>
+          <p>Understanding your dosha is like receiving a personalized manual for your body and mind. It explains why certain foods, activities, and environments make you feel vibrant, while others leave you depleted or imbalanced. This knowledge empowers you to make choices that support your natural constitution rather than working against it.</p>
+          <div class="article-divider"></div>
+          <p>Vata types tend to be creative, energetic, and quick-thinking, but can become anxious, scattered, or cold when out of balance. Grounding practices are essential: warm, nourishing foods; regular routines; gentle exercise like walking or yoga; and environments that feel safe and stable.</p>
+          <p>Pitta types are naturally driven, focused, and warm, but can become irritable, critical, or overheated when imbalanced. Cooling practices help: fresh foods, time in nature, moderate exercise, and activities that cultivate patience and playfulness rather than competition.</p>
+          <p>Kapha types are naturally steady, nurturing, and strong, but can become sluggish, resistant to change, or heavy when out of balance. Stimulating practices are beneficial: light and warming foods, vigorous exercise, new experiences, and environments that inspire movement and growth.</p>
+          <p>Most people are a combination of two or three doshas, with one usually predominant. Begin by observing your own patterns. What foods make you feel best? What time of day do you have the most energy? What environments help you thrive? Ayurveda is ultimately about self-knowledge, and the best teacher is your own direct experience.</p>
+        `
+      }
+    };
+
+    // Load article based on URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get('id');
+
+    if (articleId && articles[articleId]) {
+      const article = articles[articleId];
+      document.getElementById('article-category').textContent = article.category;
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-content').innerHTML = article.content;
+      document.title = article.title + ' | Healing with Gia';
+    } else {
+      document.getElementById('article-title').textContent = 'Article Not Found';
+      document.getElementById('article-content').innerHTML = '<p>Sorry, this article could not be found. <a href="writings.html">Return to Writings</a>.</p>';
+    }
+
+    // Scroll Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav-container');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Display Order", name: "order", widget: "number" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        field: { label: "Feature", name: "feature", widget: "string" }
+      - { label: "Price", name: "price", widget: "string", required: false }
+      - { label: "Button Text", name: "cta_text", widget: "string", default: "Learn More" }
+      - { label: "Button Link", name: "cta_link", widget: "string", default: "contact.html" }
+
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Featured"
+          - "Mindfulness"
+          - "Energy"
+          - "Relationships"
+          - "Nutrition"
+          - "Meditation"
+          - "Spirituality"
+          - "Self-Care"
+          - "Healing"
+          - "Ayurveda"
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Time", name: "time", widget: "string" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - "Ceremony"
+          - "Circle"
+          - "Workshop"
+          - "Retreat"
+          - "Online"
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Badge", name: "badge", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Button Text", name: "cta_text", widget: "string", default: "Register" }
+      - { label: "Button Link", name: "cta_link", widget: "string", default: "contact.html" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Avatar Initial", name: "avatar_initial", widget: "string" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Quote", name: "quote", widget: "text" }
