@@ -94,7 +94,8 @@ body {
   z-index: 1000;
   padding: 1.5rem 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 3rem;
   align-items: center;
   background: linear-gradient(to bottom, #D2D0D6, transparent);
   transition: var(--transition);
