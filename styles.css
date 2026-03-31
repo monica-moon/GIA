@@ -92,7 +92,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,14 +126,14 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   list-style: none;
 }
 
 .nav-links a {
   font-family: 'Questrial', sans-serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.15em;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
