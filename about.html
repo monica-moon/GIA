@@ -7,29 +7,37 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
   <style>
-    /* Unified pale pink background for about page */
+    /* Unified sage green background for about page */
     body {
-      background-color: #FDF8F8;
+      background-color: #94B8A0;
+    }
+
+    .page-hero.about-hero {
+      background: #94B8A0 !important;
     }
 
     .about-intro {
-      background: #FDF8F8;
+      background: #94B8A0;
     }
 
     .philosophy-section {
-      background: #FDF8F8;
+      background: #94B8A0;
     }
 
     .credentials {
-      background: #FDF8F8;
+      background: #94B8A0;
     }
 
     .approach-section {
-      background: #FDF8F8;
+      background: #94B8A0;
     }
 
     .home-cta {
-      background: #FDF8F8;
+      background: #94B8A0;
+    }
+
+    .about-image-placeholder {
+      background: linear-gradient(135deg, #A8B8AC, #96A89C) !important;
     }
   </style>
 </head>
@@ -41,18 +49,18 @@
 
   <!-- Sacred Geometry Background -->
   <svg class="mandala-bg" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="90" fill="none" stroke="#9CAF94" stroke-width="0.3"/>
-    <circle cx="100" cy="100" r="60" fill="none" stroke="#9CAF94" stroke-width="0.3"/>
-    <circle cx="100" cy="100" r="30" fill="none" stroke="#9CAF94" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#8B5E7A" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="60" fill="none" stroke="#8B5E7A" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#8B5E7A" stroke-width="0.3"/>
   </svg>
 
   <!-- Navigation -->
   <nav class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-        <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
       </svg>
       GIA
     </a>
@@ -74,20 +82,11 @@
   <!-- About Intro Section -->
   <section class="about-intro" style="padding-top: 10rem;">
     <div style="text-align: center; margin-bottom: 3rem;">
-      <img src="logo.png" alt="Gia Logo" style="width: 280px; height: auto; max-width: 90%;">
+      <img src="logo.png" alt="Gia Logo" style="width: 320px; height: auto; max-width: 90%;">
     </div>
     <div class="about-grid">
       <div class="about-image fade-in">
-        <div class="about-image-placeholder">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Meditation Figure -->
-            <circle cx="50" cy="25" r="12" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
-            <path d="M50 37 L50 55" stroke="#9CAF94" stroke-width="1.5"/>
-            <path d="M35 70 L50 55 L65 70" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
-            <path d="M30 50 L50 45 L70 50" stroke="#C4A77D" stroke-width="1" fill="none"/>
-            <circle cx="50" cy="80" r="15" stroke="#C4A77D" stroke-width="0.5" fill="none" opacity="0.5"/>
-          </svg>
-        </div>
+        <img src="images/gia .png" alt="Gia" class="about-photo">
       </div>
       <div class="about-text fade-in delay-1">
         <h3>Welcome, Beautiful Soul</h3>
@@ -103,12 +102,11 @@
     <div class="philosophy-content">
       <div class="section-header">
         <svg class="section-symbol" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M25 5 L25 45" stroke="#C4A77D" stroke-width="0.5"/>
-          <path d="M5 25 L45 25" stroke="#C4A77D" stroke-width="0.5"/>
-          <circle cx="25" cy="25" r="18" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
+          <path d="M25 5 L25 45" stroke="#D4A04A" stroke-width="0.5"/>
+          <path d="M5 25 L45 25" stroke="#D4A04A" stroke-width="0.5"/>
+          <circle cx="25" cy="25" r="18" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
         </svg>
-        <h2>My Philosophy</h2>
-        <div class="divider"></div>
+        <h2 style="font-family: 'Playfair Display', serif; font-style: italic;">My Philosophy</h2>
       </div>
       <blockquote>
         "True healing happens when we stop treating symptoms and start listening to what our whole being is trying to tell us. The body has an innate wisdom—our work is to create the conditions for that wisdom to flourish."
@@ -121,53 +119,52 @@
   <section class="credentials">
     <div class="section-header">
       <svg class="section-symbol" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="25,5 30,20 45,20 33,30 38,45 25,35 12,45 17,30 5,20 20,20" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
+        <polygon points="25,5 30,20 45,20 33,30 38,45 25,35 12,45 17,30 5,20 20,20" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
       </svg>
       <h2>Training & Certifications</h2>
-      <div class="divider"></div>
       <p>A foundation built on continuous learning and deep practice</p>
     </div>
     <div class="credentials-grid">
       <div class="credential-item fade-in">
         <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="20" stroke="#9CAF94" stroke-width="1" fill="none"/>
-          <path d="M25 10 L25 25 L35 30" stroke="#9CAF94" stroke-width="1" fill="none"/>
+          <circle cx="25" cy="25" r="20" stroke="#8B5E7A" stroke-width="1" fill="none"/>
+          <path d="M25 10 L25 25 L35 30" stroke="#8B5E7A" stroke-width="1" fill="none"/>
         </svg>
         <h4>Certified Health Coach</h4>
       </div>
       <div class="credential-item fade-in delay-1">
         <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M25 10 C15 20 10 30 10 38 C10 44 17 48 25 48 C33 48 40 44 40 38 C40 30 35 20 25 10Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          <path d="M25 10 C15 20 10 30 10 38 C10 44 17 48 25 48 C33 48 40 44 40 38 C40 30 35 20 25 10Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
         </svg>
         <h4>Reiki Master Practitioner</h4>
       </div>
       <div class="credential-item fade-in delay-2">
         <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#9CAF94" stroke-width="1" fill="none"/>
-          <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(60 25 25)"/>
-          <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(120 25 25)"/>
+          <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#8B5E7A" stroke-width="1" fill="none"/>
+          <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#8B5E7A" stroke-width="1" fill="none" transform="rotate(60 25 25)"/>
+          <ellipse cx="25" cy="25" rx="20" ry="8" stroke="#8B5E7A" stroke-width="1" fill="none" transform="rotate(120 25 25)"/>
         </svg>
         <h4>Meditation Teacher</h4>
       </div>
       <div class="credential-item fade-in delay-3">
         <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="15" r="10" stroke="#C4A77D" stroke-width="1" fill="none"/>
-          <circle cx="15" cy="35" r="10" stroke="#C4A77D" stroke-width="1" fill="none"/>
-          <circle cx="35" cy="35" r="10" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          <circle cx="25" cy="15" r="10" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <circle cx="15" cy="35" r="10" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <circle cx="35" cy="35" r="10" stroke="#D4A04A" stroke-width="1" fill="none"/>
         </svg>
         <h4>Ayurvedic Lifestyle Consultant</h4>
       </div>
       <div class="credential-item fade-in delay-4">
         <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 20 C15 15 20 12 25 12 C30 12 35 15 35 20 C35 28 25 35 25 35 C25 35 15 28 15 20Z" stroke="#9CAF94" stroke-width="1" fill="none"/>
-          <path d="M20 22 L25 27 L30 22" stroke="#9CAF94" stroke-width="1" fill="none"/>
+          <path d="M15 20 C15 15 20 12 25 12 C30 12 35 15 35 20 C35 28 25 35 25 35 C25 35 15 28 15 20Z" stroke="#8B5E7A" stroke-width="1" fill="none"/>
+          <path d="M20 22 L25 27 L30 22" stroke="#8B5E7A" stroke-width="1" fill="none"/>
         </svg>
         <h4>Medical Massage Therapist</h4>
       </div>
       <div class="credential-item fade-in delay-4">
         <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="15" width="30" height="25" rx="3" stroke="#C4A77D" stroke-width="1" fill="none"/>
-          <path d="M15 25 L25 32 L35 25" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          <rect x="10" y="15" width="30" height="25" rx="3" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <path d="M15 25 L25 32 L35 25" stroke="#D4A04A" stroke-width="1" fill="none"/>
         </svg>
         <h4>Herbalism Studies</h4>
       </div>
@@ -179,11 +176,10 @@
     <div class="approach-content">
       <div class="section-header">
         <svg class="section-symbol" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="22" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
-          <path d="M25 3 L25 47 M3 25 L47 25 M10 10 L40 40 M40 10 L10 40" stroke="#C4A77D" stroke-width="0.3"/>
+          <circle cx="25" cy="25" r="22" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
+          <path d="M25 3 L25 47 M3 25 L47 25 M10 10 L40 40 M40 10 L10 40" stroke="#D4A04A" stroke-width="0.3"/>
         </svg>
         <h2>Guiding Values</h2>
-        <div class="divider"></div>
       </div>
       <div class="approach-steps">
         <div class="approach-step fade-in">
@@ -214,9 +210,9 @@
   <section class="home-cta">
     <div class="cta-content fade-in">
       <svg class="section-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 10 C20 20 15 30 30 40 C45 30 40 20 30 10Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-        <path d="M30 40 L30 55" stroke="#C4A77D" stroke-width="1"/>
-        <circle cx="30" cy="25" r="5" fill="#C4A77D" opacity="0.3"/>
+        <path d="M30 10 C20 20 15 30 30 40 C45 30 40 20 30 10Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <path d="M30 40 L30 55" stroke="#D4A04A" stroke-width="1"/>
+        <circle cx="30" cy="25" r="5" fill="#D4A04A" opacity="0.3"/>
       </svg>
       <h2>Let's Connect</h2>
       <p>I would be honored to learn about your journey and explore how we might work together toward your highest wellbeing.</p>
@@ -230,8 +226,8 @@
       <div class="footer-brand">
         <a href="index.html" class="logo">
           <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-            <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
           </svg>
           GIA
         </a>
@@ -246,15 +242,7 @@
           <li><a href="events.html">Events</a></li>
         </ul>
       </div>
-      <div class="footer-column">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">Holistic Coaching</a></li>
-          <li><a href="services.html">Energy Healing</a></li>
-          <li><a href="services.html">Meditation</a></li>
-          <li><a href="services.html">Workshops</a></li>
-        </ul>
-      </div>
+      
       <div class="footer-column">
         <h4>Connect</h4>
         <ul>

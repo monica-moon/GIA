@@ -17,23 +17,23 @@
 
   <!-- Sacred Geometry Background -->
   <svg class="mandala-bg" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="90" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
-    <circle cx="100" cy="100" r="70" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
-    <circle cx="100" cy="100" r="50" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
-    <circle cx="100" cy="100" r="30" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
-    <path d="M100 10 L100 190 M10 100 L190 100 M29 29 L171 171 M171 29 L29 171" stroke="#C4A77D" stroke-width="0.2"/>
-    <polygon points="100,20 176,145 24,145" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
-    <polygon points="100,180 176,55 24,55" fill="none" stroke="#C4A77D" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+    <path d="M100 10 L100 190 M10 100 L190 100 M29 29 L171 171 M171 29 L29 171" stroke="#D4A04A" stroke-width="0.2"/>
+    <polygon points="100,20 176,145 24,145" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+    <polygon points="100,180 176,55 24,55" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
   </svg>
 
   <!-- Navigation -->
   <nav class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-        <path d="M30 40C30 40 24 34 24 28C24 25 27 23 30 26C33 23 36 25 36 28C36 34 30 40 30 40Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-        <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <path d="M30 40C30 40 24 34 24 28C24 25 27 23 30 26C33 23 36 25 36 28C36 34 30 40 30 40Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
       </svg>
       GIA
     </a>
@@ -65,11 +65,10 @@
 
     <div class="hero-content">
       <!-- Lotus Symbol -->
-      <img src="logo.png" alt="Gia Logo" class="hero-symbol" style="width: 200px; height: auto; margin-bottom: 0.5rem;">
+      <img src="logo.png" alt="Gia Logo" class="hero-symbol" style="width: 320px; height: auto; margin-bottom: 0.5rem;">
 
       <h1>Healing with GIA</h1>
       <p class="subtitle">Holistic Wellness Guide</p>
-      <p class="tagline">"Nurturing your journey to wholeness through ancient wisdom and modern understanding"</p>
       <a href="services.html" class="btn">Begin Your Journey</a>
     </div>
 
@@ -87,24 +86,99 @@
   <section class="home-about">
     <div class="home-about-grid">
       <div class="about-visual fade-in">
-        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Tree of Life Symbol -->
-          <circle cx="150" cy="200" r="140" stroke="#E8EDE6" stroke-width="2" fill="none"/>
-          <circle cx="150" cy="200" r="100" stroke="#E8EDE6" stroke-width="1" fill="none"/>
-          <path d="M150 340 L150 200 M150 200 C120 160 100 120 120 80 M150 200 C180 160 200 120 180 80 M150 200 C130 180 110 160 100 140 M150 200 C170 180 190 160 200 140" stroke="#9CAF94" stroke-width="1.5" fill="none"/>
-          <circle cx="120" cy="80" r="15" fill="#E8EDE6"/>
-          <circle cx="180" cy="80" r="15" fill="#E8EDE6"/>
-          <circle cx="100" cy="140" r="12" fill="#F7EEED"/>
-          <circle cx="200" cy="140" r="12" fill="#F7EEED"/>
-          <circle cx="150" cy="60" r="18" fill="#E8E4ED"/>
+        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            /* Outer sacred circle draws itself slowly */
+            .sacred-outer {
+              stroke-dasharray: 754;
+              stroke-dashoffset: 754;
+              animation: completeCircle 6s ease-in-out infinite;
+            }
+            /* Middle circle follows */
+            .sacred-mid {
+              stroke-dasharray: 502;
+              stroke-dashoffset: 502;
+              animation: completeCircle 6s ease-in-out infinite;
+              animation-delay: 1s;
+            }
+            /* Inner circle completes last */
+            .sacred-inner {
+              stroke-dasharray: 252;
+              stroke-dashoffset: 252;
+              animation: completeCircle 6s ease-in-out infinite;
+              animation-delay: 2s;
+            }
+            /* Glowing dot traces the outer circle */
+            .trace-dot {
+              animation: tracePath 6s ease-in-out infinite;
+              transform-origin: 150px 150px;
+            }
+            /* Center lotus breathes */
+            .lotus-center {
+              opacity: 0;
+              animation: lotusBloom 6s ease-in-out infinite;
+              animation-delay: 3s;
+              transform-origin: 150px 150px;
+            }
+            /* Cross lines draw in */
+            .sacred-cross {
+              stroke-dasharray: 200;
+              stroke-dashoffset: 200;
+              animation: completeCircle 6s ease-in-out infinite;
+              animation-delay: 2.5s;
+            }
+            @keyframes completeCircle {
+              0% { stroke-dashoffset: inherit; opacity: 0.3; }
+              15% { opacity: 1; }
+              50% { stroke-dashoffset: 0; opacity: 1; }
+              85% { stroke-dashoffset: 0; opacity: 1; }
+              100% { stroke-dashoffset: inherit; opacity: 0.3; }
+            }
+            @keyframes tracePath {
+              0% { transform: rotate(0deg); opacity: 0; }
+              5% { opacity: 1; }
+              50% { transform: rotate(360deg); opacity: 1; }
+              85% { transform: rotate(360deg); opacity: 0.5; }
+              100% { transform: rotate(360deg); opacity: 0; }
+            }
+            @keyframes lotusBloom {
+              0%, 10% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+              40%, 70% { opacity: 1; transform: scale(1) rotate(45deg); }
+              100% { opacity: 0; transform: scale(0.5) rotate(90deg); }
+            }
+          </style>
+          <!-- Outer sacred circle -->
+          <circle class="sacred-outer" cx="150" cy="150" r="120" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <!-- Middle circle -->
+          <circle class="sacred-mid" cx="150" cy="150" r="80" stroke="#8B5E7A" stroke-width="0.8" fill="none"/>
+          <!-- Inner circle -->
+          <circle class="sacred-inner" cx="150" cy="150" r="40" stroke="#D4A04A" stroke-width="0.6" fill="none"/>
+          <!-- Sacred cross lines -->
+          <line class="sacred-cross" x1="150" y1="30" x2="150" y2="270" stroke="#D4A04A" stroke-width="0.3"/>
+          <line class="sacred-cross" x1="30" y1="150" x2="270" y2="150" stroke="#D4A04A" stroke-width="0.3" style="animation-delay: 2.7s;"/>
+          <line class="sacred-cross" x1="65" y1="65" x2="235" y2="235" stroke="#D4A04A" stroke-width="0.2" style="animation-delay: 2.9s;"/>
+          <line class="sacred-cross" x1="235" y1="65" x2="65" y2="235" stroke="#D4A04A" stroke-width="0.2" style="animation-delay: 3.1s;"/>
+          <!-- Tracing dot on outer circle -->
+          <circle class="trace-dot" cx="150" cy="30" r="4" fill="#D4A04A" opacity="0.8"/>
+          <!-- Center lotus / flower of life -->
+          <g class="lotus-center">
+            <circle cx="150" cy="150" r="15" stroke="#4A3050" stroke-width="0.8" fill="none"/>
+            <circle cx="150" cy="135" r="15" stroke="#8B5E7A" stroke-width="0.5" fill="none" opacity="0.6"/>
+            <circle cx="163" cy="142" r="15" stroke="#8B5E7A" stroke-width="0.5" fill="none" opacity="0.6"/>
+            <circle cx="163" cy="158" r="15" stroke="#8B5E7A" stroke-width="0.5" fill="none" opacity="0.6"/>
+            <circle cx="150" cy="165" r="15" stroke="#8B5E7A" stroke-width="0.5" fill="none" opacity="0.6"/>
+            <circle cx="137" cy="158" r="15" stroke="#8B5E7A" stroke-width="0.5" fill="none" opacity="0.6"/>
+            <circle cx="137" cy="142" r="15" stroke="#8B5E7A" stroke-width="0.5" fill="none" opacity="0.6"/>
+            <circle cx="150" cy="150" r="3" fill="#D4A04A" opacity="0.6"/>
+          </g>
         </svg>
       </div>
       <div class="about-text fade-in delay-1">
         <div class="section-symbol">
           <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="25" cy="25" r="20" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
-            <circle cx="25" cy="25" r="10" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
-            <circle cx="25" cy="25" r="3" fill="#C4A77D" opacity="0.3"/>
+            <circle cx="25" cy="25" r="20" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
+            <circle cx="25" cy="25" r="10" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
+            <circle cx="25" cy="25" r="3" fill="#D4A04A" opacity="0.3"/>
           </svg>
         </div>
         <h3>A Path to Wholeness</h3>
@@ -119,37 +193,36 @@
   <section class="home-services">
     <div class="section-header">
       <svg class="section-symbol" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="25,5 45,40 5,40" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
-        <polygon points="25,45 45,10 5,10" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
+        <polygon points="25,5 45,40 5,40" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
+        <polygon points="25,45 45,10 5,10" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
       </svg>
       <h2>Sacred Offerings</h2>
-      <div class="divider"></div>
       <p>Transformative services designed to nurture your complete wellbeing</p>
     </div>
     <div class="home-services-grid">
       <div class="home-service-card fade-in">
         <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="30" cy="30" r="25" stroke="#9CAF94" stroke-width="1" fill="none"/>
-          <path d="M30 15 L30 45 M15 30 L45 30" stroke="#9CAF94" stroke-width="0.5"/>
-          <circle cx="30" cy="30" r="8" stroke="#C4A77D" stroke-width="1" fill="none"/>
+          <circle cx="30" cy="30" r="25" stroke="#8B5E7A" stroke-width="1" fill="none"/>
+          <path d="M30 15 L30 45 M15 30 L45 30" stroke="#8B5E7A" stroke-width="0.5"/>
+          <circle cx="30" cy="30" r="8" stroke="#D4A04A" stroke-width="1" fill="none"/>
         </svg>
         <h3>Holistic Coaching</h3>
         <p>Personalized guidance integrating mindfulness, nutrition, and spiritual practices for lasting transformation.</p>
       </div>
       <div class="home-service-card fade-in delay-1">
         <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 10 C20 20 15 30 15 40 C15 48 22 55 30 55 C38 55 45 48 45 40 C45 30 40 20 30 10Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-          <circle cx="30" cy="40" r="5" fill="#C4A77D" opacity="0.3"/>
+          <path d="M30 10 C20 20 15 30 15 40 C15 48 22 55 30 55 C38 55 45 48 45 40 C45 30 40 20 30 10Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <circle cx="30" cy="40" r="5" fill="#D4A04A" opacity="0.3"/>
         </svg>
         <h3>Energy Healing</h3>
         <p>Restore balance and vitality through gentle energy work that clears blockages and promotes deep healing.</p>
       </div>
       <div class="home-service-card fade-in delay-2">
         <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#9CAF94" stroke-width="1" fill="none"/>
-          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(60 30 30)"/>
-          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#9CAF94" stroke-width="1" fill="none" transform="rotate(120 30 30)"/>
-          <circle cx="30" cy="30" r="4" fill="#C4A77D" opacity="0.4"/>
+          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#8B5E7A" stroke-width="1" fill="none"/>
+          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#8B5E7A" stroke-width="1" fill="none" transform="rotate(60 30 30)"/>
+          <ellipse cx="30" cy="30" rx="25" ry="10" stroke="#8B5E7A" stroke-width="1" fill="none" transform="rotate(120 30 30)"/>
+          <circle cx="30" cy="30" r="4" fill="#D4A04A" opacity="0.4"/>
         </svg>
         <h3>Meditation Guidance</h3>
         <p>Learn ancient meditation techniques adapted for modern life, cultivating inner peace and clarity.</p>
@@ -164,11 +237,10 @@
   <section class="home-testimonial">
     <div class="section-header">
       <svg class="section-symbol" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 25 C10 15 20 10 25 10 C30 10 40 15 40 25 C40 35 30 45 25 45 C20 45 10 35 10 25Z" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
-        <circle cx="25" cy="25" r="8" stroke="#C4A77D" stroke-width="0.5" fill="none"/>
+        <path d="M10 25 C10 15 20 10 25 10 C30 10 40 15 40 25 C40 35 30 45 25 45 C20 45 10 35 10 25Z" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
+        <circle cx="25" cy="25" r="8" stroke="#D4A04A" stroke-width="0.5" fill="none"/>
       </svg>
       <h2>Words of Transformation</h2>
-      <div class="divider"></div>
     </div>
 
     <div class="testimonial-carousel fade-in">
@@ -247,13 +319,24 @@
 
       <div class="carousel-dots" id="carouselDots"></div>
     </div>
+
+    <!-- Submit a Review -->
+    <div class="review-form-container fade-in" style="max-width: 600px; margin: 3rem auto 0; text-align: center;">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1.5rem;">Share Your Experience</h3>
+      <form id="reviewForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <input type="text" id="reviewName" placeholder="Your Name" required style="padding: 0.8rem 1.2rem; border: 1px solid var(--accent-gold); background: rgba(255,255,255,0.35); font-family: 'Questrial', sans-serif; font-size: 0.95rem; color: var(--text-dark); outline: none;">
+        <input type="text" id="reviewRole" placeholder="e.g. Wellness Journey Client" style="padding: 0.8rem 1.2rem; border: 1px solid var(--accent-gold); background: rgba(255,255,255,0.35); font-family: 'Questrial', sans-serif; font-size: 0.95rem; color: var(--text-dark); outline: none;">
+        <textarea id="reviewQuote" placeholder="Share your experience..." required rows="4" style="padding: 0.8rem 1.2rem; border: 1px solid var(--accent-gold); background: rgba(255,255,255,0.35); font-family: 'Questrial', sans-serif; font-size: 0.95rem; color: var(--text-dark); outline: none; resize: vertical;"></textarea>
+        <button type="submit" class="btn" style="align-self: center;">Submit Review</button>
+      </form>
+    </div>
   </section>
 
   <!-- Call to Action -->
   <section class="home-cta">
     <div class="cta-content fade-in">
       <svg class="section-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 5 L35 25 L55 25 L40 38 L45 58 L30 45 L15 58 L20 38 L5 25 L25 25 Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
+        <path d="M30 5 L35 25 L55 25 L40 38 L45 58 L30 45 L15 58 L20 38 L5 25 L25 25 Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
       </svg>
       <h2>Ready to Begin Your Healing Journey?</h2>
       <p>Take the first step toward wholeness. Schedule a complimentary discovery call to explore how we can work together.</p>
@@ -267,8 +350,8 @@
       <div class="footer-brand">
         <a href="index.html" class="logo">
           <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#C4A77D" stroke-width="1" fill="none"/>
-            <circle cx="30" cy="28" r="3" fill="#C4A77D" opacity="0.5"/>
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
           </svg>
           GIA
         </a>
@@ -283,15 +366,7 @@
           <li><a href="events.html">Events</a></li>
         </ul>
       </div>
-      <div class="footer-column">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">Holistic Coaching</a></li>
-          <li><a href="services.html">Energy Healing</a></li>
-          <li><a href="services.html">Meditation</a></li>
-          <li><a href="services.html">Workshops</a></li>
-        </ul>
-      </div>
+      
       <div class="footer-column">
         <h4>Connect</h4>
         <ul>
@@ -314,29 +389,29 @@
   </footer>
 
   <style>
-    /* Unified light green background for home page */
+    /* Unified dark spiritual background for home page */
     body {
-      background-color: var(--soft-sage);
+      background-color: #C8B8C8;
     }
 
     .hero {
-      background: var(--soft-sage);
+      background: #C8B8C8;
     }
 
     .home-about {
-      background: var(--soft-sage);
+      background: #C8B8C8;
     }
 
     .home-services {
-      background: var(--soft-sage);
+      background: #C8B8C8;
     }
 
     .home-testimonial {
-      background: var(--soft-sage);
+      background: #C8B8C8;
     }
 
     .home-cta {
-      background: var(--soft-sage);
+      background: #C8B8C8;
     }
 
     /* Additional Hero Styles for Mind Body Spirit */
@@ -553,6 +628,87 @@
         dragStart = null;
       });
     })();
+
+    // Load saved reviews from localStorage
+    (function() {
+      const track = document.getElementById('testimonialTrack');
+      const saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+      saved.forEach(r => {
+        const slide = document.createElement('div');
+        slide.className = 'testimonial-slide';
+        slide.innerHTML = '<blockquote>"' + r.quote + '"</blockquote>' +
+          '<div class="testimonial-author" style="justify-content: center;">' +
+          '<div class="author-avatar"><span>' + r.name.charAt(0).toUpperCase() + '</span></div>' +
+          '<div class="author-info"><h4>' + r.name + '</h4><p>' + (r.role || 'Client') + '</p></div></div>';
+        track.appendChild(slide);
+      });
+
+      // Rebuild carousel dots after adding saved reviews
+      const dotsContainer = document.getElementById('carouselDots');
+      const allSlides = track.querySelectorAll('.testimonial-slide');
+      dotsContainer.innerHTML = '';
+      allSlides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+        dot.addEventListener('click', () => {
+          const total = allSlides.length;
+          track.style.transform = 'translateX(-' + (i * 100) + '%)';
+          dotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => {
+            d.classList.toggle('active', j === i);
+          });
+        });
+        dotsContainer.appendChild(dot);
+      });
+    })();
+
+    // Review form submission
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('reviewName').value.trim();
+      const role = document.getElementById('reviewRole').value.trim();
+      const quote = document.getElementById('reviewQuote').value.trim();
+      if (!name || !quote) return;
+
+      const saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+      saved.push({ name: name, role: role, quote: quote });
+      localStorage.setItem('giaReviews', JSON.stringify(saved));
+
+      // Add slide immediately
+      const track = document.getElementById('testimonialTrack');
+      const slide = document.createElement('div');
+      slide.className = 'testimonial-slide';
+      slide.innerHTML = '<blockquote>"' + quote + '"</blockquote>' +
+        '<div class="testimonial-author" style="justify-content: center;">' +
+        '<div class="author-avatar"><span>' + name.charAt(0).toUpperCase() + '</span></div>' +
+        '<div class="author-info"><h4>' + name + '</h4><p>' + (role || 'Client') + '</p></div></div>';
+      track.appendChild(slide);
+
+      // Rebuild dots
+      const dotsContainer = document.getElementById('carouselDots');
+      const allSlides = track.querySelectorAll('.testimonial-slide');
+      const newIndex = allSlides.length - 1;
+      dotsContainer.innerHTML = '';
+      allSlides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === newIndex ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+        dot.addEventListener('click', () => {
+          track.style.transform = 'translateX(-' + (i * 100) + '%)';
+          dotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => {
+            d.classList.toggle('active', j === i);
+          });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      // Navigate to the new review
+      track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
+
+      // Reset form
+      this.reset();
+      alert('Thank you for sharing your experience!');
+    });
   </script>
 </body>
 </html>
