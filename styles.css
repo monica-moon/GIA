@@ -133,8 +133,8 @@ body {
 
 .nav-links a {
   font-family: 'Questrial', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
