@@ -197,7 +197,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 15rem 2rem 3rem;
+  padding: 18rem 2rem 3rem;
   position: relative;
   background: linear-gradient(135deg, var(--cream) 0%, var(--soft-sage) 50%, var(--muted-lavender) 100%);
 }
