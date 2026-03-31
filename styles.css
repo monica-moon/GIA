@@ -92,7 +92,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.5rem 2.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,7 +108,7 @@ body {
 
 .logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.3em;
   color: var(--text-dark);
@@ -119,8 +119,8 @@ body {
 }
 
 .logo-symbol {
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   opacity: 0.8;
 }
 
@@ -132,8 +132,8 @@ body {
 
 .nav-links a {
   font-family: 'Questrial', sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
@@ -196,7 +196,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 10rem 2rem 3rem;
+  padding: 12rem 2rem 3rem;
   position: relative;
   background: linear-gradient(135deg, var(--cream) 0%, var(--soft-sage) 50%, var(--muted-lavender) 100%);
 }
@@ -1298,7 +1298,7 @@ footer {
    ============================================ */
 
 /* Mobile menu overlay — touch-device only */
-@media (pointer: coarse) {
+@media (pointer: coarse) and (max-width: 600px) {
   .mobile-menu-btn {
     display: block;
     position: relative;
@@ -1477,13 +1477,11 @@ footer {
   }
 
   .nav-links {
-    display: none;
+    display: flex;
   }
 
   .mobile-menu-btn {
-    display: block;
-    position: relative;
-    z-index: 1002;
+    display: none;
   }
 
   .logo {
