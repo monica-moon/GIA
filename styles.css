@@ -1320,6 +1320,11 @@ footer {
   .about-intro {
     padding-top: 4rem !important;
   }
+
+  .about-photo {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 }
 
 .mobile-menu-overlay {
