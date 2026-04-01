@@ -680,7 +680,7 @@
     (function() {
       var track = document.getElementById('testimonialTrack');
       if (db) {
-        db.collection('testimonials').orderBy('timestamp', 'asc').get().then(function(snapshot) {
+        db.collection('testimonials').get().then(function(snapshot) {
           snapshot.forEach(function(doc) {
             var data = doc.data();
             track.appendChild(createReviewSlide({ name: data.name, role: data.role, quote: data.message }));
