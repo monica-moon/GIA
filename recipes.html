@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=850">
+  <title>Healthy Recipes | Healing with Gia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
+  <style>
+    body {
+      background-color: #A8C0A0;
+    }
+
+    .page-hero.recipes-hero {
+      background: #A8C0A0;
+    }
+
+    .recipes-intro {
+      background: #A8C0A0;
+      padding-bottom: 0;
+    }
+
+    .recipes-grid-section {
+      background: #A8C0A0;
+    }
+
+    .home-cta {
+      background: #A8C0A0;
+    }
+
+    .recipe-card {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .recipe-image {
+      height: 200px;
+      background: linear-gradient(135deg, #7E5C8C, #5E4070);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .recipe-image svg {
+      width: 60px;
+      height: 60px;
+      opacity: 0.4;
+    }
+
+    .recipe-category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+    }
+
+    .recipe-content {
+      padding: 1.5rem;
+    }
+
+    .recipe-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-dark);
+    }
+
+    .recipe-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .recipe-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .recipe-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .recipes-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="particle" style="top: 30%; left: 8%; animation-delay: 0s;"></div>
+  <div class="particle" style="top: 60%; left: 90%; animation-delay: 3s;"></div>
+  <div class="particle" style="top: 80%; left: 40%; animation-delay: 6s;"></div>
+
+  <svg class="mandala-bg" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="#D4A04A" stroke-width="0.3"/>
+  </svg>
+
+  <nav class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
+      </svg>
+      GIA
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="writings.html">Writings</a></li>
+      <li><a href="recipes.html" class="active">Recipes</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <section class="page-hero recipes-hero">
+    <div class="hero-content">
+      <img src="logo.png" alt="Gia Logo" style="width: 320px; height: auto; margin-bottom: 0.5rem;">
+      <h1>Healthy Recipes</h1>
+      <p class="page-subtitle">Nourishing your body with wholesome, healing foods</p>
+    </div>
+  </section>
+
+  <section class="recipes-intro">
+    <p class="fade-in" style="max-width: 700px; margin: 0 auto; text-align: center; color: var(--text-light); font-size: 1.1rem;">Food is medicine. These recipes are crafted to nourish your body, calm your mind, and support your healing journey. Each dish is made with whole, natural ingredients rooted in ancient wellness traditions.</p>
+  </section>
+
+  <section class="recipes-grid-section" style="padding: 2.5rem 4rem;">
+    <div class="recipes-container">
+
+      <div class="recipe-card fade-in">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #6A8E5C, #4A6E3C);">
+          <span class="recipe-category">Smoothie</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Golden Turmeric Healing Smoothie</h3>
+          <p>A vibrant anti-inflammatory blend with turmeric, mango, ginger, and coconut milk that supports digestion and reduces inflammation.</p>
+          <div class="recipe-meta">
+            <span>5 min</span>
+            <span>1 serving</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in delay-1">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #8E6A5C, #6E4A3C);">
+          <span class="recipe-category">Bowl</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Warm Quinoa Buddha Bowl</h3>
+          <p>A grounding bowl with roasted sweet potato, quinoa, tahini drizzle, avocado, and toasted seeds for sustained energy throughout the day.</p>
+          <div class="recipe-meta">
+            <span>30 min</span>
+            <span>2 servings</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in delay-2">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #5C6A8E, #3C4A6E);">
+          <span class="recipe-category">Tea</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Lavender Moon Milk</h3>
+          <p>A calming bedtime elixir with warm oat milk, dried lavender, ashwagandha, raw honey, and a touch of vanilla for deep restful sleep.</p>
+          <div class="recipe-meta">
+            <span>10 min</span>
+            <span>1 serving</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #7A8E5C, #5A6E3C);">
+          <span class="recipe-category">Salad</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Detox Green Goddess Salad</h3>
+          <p>A cleansing salad with mixed greens, cucumber, avocado, sprouts, hemp seeds, and a lemon-herb dressing to reset your system.</p>
+          <div class="recipe-meta">
+            <span>15 min</span>
+            <span>2 servings</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in delay-1">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #8E7A5C, #6E5A3C);">
+          <span class="recipe-category">Soup</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Ayurvedic Kitchari</h3>
+          <p>A traditional healing stew of mung beans, basmati rice, and gentle spices. The ultimate comfort food for digestive reset and gentle detox.</p>
+          <div class="recipe-meta">
+            <span>40 min</span>
+            <span>4 servings</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in delay-2">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #5C8E7A, #3C6E5A);">
+          <span class="recipe-category">Snack</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Cacao Bliss Energy Bites</h3>
+          <p>Raw cacao, dates, almond butter, and maca powder rolled into bliss balls. A guilt-free treat that boosts mood and energy naturally.</p>
+          <div class="recipe-meta">
+            <span>15 min</span>
+            <span>12 bites</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #6A5C8E, #4A3C6E);">
+          <span class="recipe-category">Breakfast</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Overnight Chia Pudding</h3>
+          <p>Creamy chia seeds soaked in almond milk with fresh berries, toasted coconut, and a drizzle of raw honey for a nourishing morning start.</p>
+          <div class="recipe-meta">
+            <span>5 min + overnight</span>
+            <span>1 serving</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in delay-1">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #8E5C6A, #6E3C4A);">
+          <span class="recipe-category">Juice</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Beet Root Glow Juice</h3>
+          <p>A vibrant cold-pressed blend of beet, carrot, apple, ginger, and lemon that supports liver health and gives your skin a natural glow.</p>
+          <div class="recipe-meta">
+            <span>10 min</span>
+            <span>1 serving</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card fade-in delay-2">
+        <div class="recipe-image" style="background: linear-gradient(135deg, #5C8E5C, #3C6E3C);">
+          <span class="recipe-category">Dinner</span>
+        </div>
+        <div class="recipe-content">
+          <h3>Herb-Crusted Salmon with Greens</h3>
+          <p>Wild-caught salmon with a rosemary-thyme crust served over sauteed greens with garlic and lemon. Rich in omega-3s for brain and heart health.</p>
+          <div class="recipe-meta">
+            <span>25 min</span>
+            <span>2 servings</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="home-cta">
+    <div class="cta-content fade-in">
+      <h2>Nourish Your Body, Heal Your Soul</h2>
+      <p>Want personalized nutrition guidance? Book a consultation to create a meal plan tailored to your unique needs.</p>
+      <a href="contact.html" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
+          </svg>
+          GIA
+        </a>
+        <p>Guiding souls toward wholeness through the sacred connection of mind, body, and spirit.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="writings.html">Writings</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:integreativehealth.beauty@gmail.com">Email</a></li>
+        </ul>
+        <div class="social-links" style="margin-top: 1rem;">
+          <a href="https://www.instagram.com/gia_healthcoach?igsh=NTc4MTIwNjQ2YQ%3D%3D" aria-label="Instagram" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/lusnord?mibextid=wwXIfr" aria-label="Facebook" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Healing with Gia. All rights reserved. Made with love and light.</p>
+    </div>
+  </footer>
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="writings.html">Writings</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <script>
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav-container');
+      if (window.scrollY > 50) { nav.classList.add('scrolled'); }
+      else { nav.classList.remove('scrolled'); }
+    });
+
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

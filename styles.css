@@ -126,14 +126,14 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   list-style: none;
 }
 
 .nav-links a {
   font-family: 'Questrial', sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
