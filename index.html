@@ -678,19 +678,24 @@
     // Load reviews from Firebase
     (function() {
       var track = document.getElementById('testimonialTrack');
-      if (db) {
-        db.ref('reviews').once('value').then(function(snapshot) {
-          var reviews = snapshot.val();
-          if (reviews) {
-            Object.keys(reviews).forEach(function(key) {
-              track.appendChild(createReviewSlide(reviews[key]));
-            });
-          }
+      try {
+        if (db) {
+          db.ref('reviews').once('value').then(function(snapshot) {
+            var reviews = snapshot.val();
+            if (reviews) {
+              Object.keys(reviews).forEach(function(key) {
+                track.appendChild(createReviewSlide(reviews[key]));
+              });
+            }
+            rebuildCarouselDots(0);
+          }).catch(function() {
+            rebuildCarouselDots(0);
+          });
+        } else {
           rebuildCarouselDots(0);
-        }).catch(function() {
-          rebuildCarouselDots(0);
-        });
-      } else {
+        }
+      } catch(e) {
+        console.log('Firebase load error:', e);
         rebuildCarouselDots(0);
       }
     })();
