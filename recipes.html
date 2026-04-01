@@ -34,15 +34,20 @@
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
     }
 
     .recipe-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     }
 
     .recipe-image {
-      height: 200px;
+      width: 180px;
+      min-height: 140px;
+      flex-shrink: 0;
       background: linear-gradient(135deg, #7E5C8C, #5E4070);
       display: flex;
       align-items: center;
@@ -102,8 +107,8 @@
 
     .recipes-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
     }
