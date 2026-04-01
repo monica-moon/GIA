@@ -542,10 +542,9 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Firebase SDK - uncomment these when firebase-config.js is set up -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-  <script src="firebase-config.js"></script> -->
+  <script src="firebase-config.js"></script>
 
   <script>
     // Initialize Firebase
@@ -676,14 +675,24 @@
       return slide;
     }
 
-    // Load saved reviews from localStorage
+    // Load reviews from Firebase
     (function() {
       var track = document.getElementById('testimonialTrack');
-      var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-      saved.forEach(function(r) {
-        track.appendChild(createReviewSlide(r));
-      });
-      rebuildCarouselDots(0);
+      if (db) {
+        db.ref('reviews').once('value').then(function(snapshot) {
+          var reviews = snapshot.val();
+          if (reviews) {
+            Object.keys(reviews).forEach(function(key) {
+              track.appendChild(createReviewSlide(reviews[key]));
+            });
+          }
+          rebuildCarouselDots(0);
+        }).catch(function() {
+          rebuildCarouselDots(0);
+        });
+      } else {
+        rebuildCarouselDots(0);
+      }
     })();
 
     // Review form submission
@@ -694,23 +703,23 @@
       var quote = document.getElementById('reviewQuote').value.trim();
       if (!name || !quote) return;
 
-      var reviewData = { name: name, role: role, quote: quote };
+      var reviewData = { name: name, role: role, quote: quote, timestamp: Date.now() };
 
-      // Save to localStorage
-      var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-      saved.push(reviewData);
-      localStorage.setItem('giaReviews', JSON.stringify(saved));
-
-      // Add slide immediately
-      var track = document.getElementById('testimonialTrack');
-      track.appendChild(createReviewSlide(reviewData));
-
-      var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
-      rebuildCarouselDots(newIndex);
-      track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
-
-      e.target.reset();
-      alert('Thank you for sharing your experience!');
+      if (db) {
+        db.ref('reviews').push(reviewData).then(function() {
+          var track = document.getElementById('testimonialTrack');
+          track.appendChild(createReviewSlide(reviewData));
+          var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
+          rebuildCarouselDots(newIndex);
+          track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
+          e.target.reset();
+          alert('Thank you for sharing your experience!');
+        }).catch(function() {
+          alert('Sorry, there was an error. Please try again.');
+        });
+      } else {
+        alert('Reviews system is not configured yet.');
+      }
     });
   </script>
 </body>
