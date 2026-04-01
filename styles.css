@@ -145,7 +145,7 @@ body {
 .nav-left a,
 .nav-right a {
   font-family: 'Questrial', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -165,8 +165,10 @@ body {
 
 .menu-trigger {
   display: none;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'Questrial', sans-serif;
-  font-size: 0.85rem;
+  font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-dark);
@@ -174,6 +176,20 @@ body {
   border: none;
   cursor: pointer;
 }
+
+.menu-trigger .hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-trigger .hamburger-icon span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--text-dark);
+}
+
 
 /* Mobile Navigation */
 .mobile-menu-btn {
@@ -1312,7 +1328,13 @@ footer {
   }
 
   .menu-trigger {
-    display: block;
+    display: flex;
+    font-size: 1.2rem;
+  }
+
+  .menu-trigger .hamburger-icon span {
+    width: 24px;
+    height: 2px;
   }
 
   .nav-container {
