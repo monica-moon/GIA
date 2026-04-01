@@ -145,8 +145,8 @@ body {
 .nav-left a,
 .nav-right a {
   font-family: 'Questrial', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
