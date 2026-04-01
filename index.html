@@ -705,20 +705,18 @@
 
       var reviewData = { name: name, role: role, quote: quote, timestamp: Date.now() };
 
+      // Add slide immediately
+      var track = document.getElementById('testimonialTrack');
+      track.appendChild(createReviewSlide(reviewData));
+      var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
+      rebuildCarouselDots(newIndex);
+      track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
+      e.target.reset();
+      alert('Thank you for sharing your experience!');
+
+      // Save to Firebase in background
       if (db) {
-        db.ref('reviews').push(reviewData).then(function() {
-          var track = document.getElementById('testimonialTrack');
-          track.appendChild(createReviewSlide(reviewData));
-          var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
-          rebuildCarouselDots(newIndex);
-          track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
-          e.target.reset();
-          alert('Thank you for sharing your experience!');
-        }).catch(function() {
-          alert('Sorry, there was an error. Please try again.');
-        });
-      } else {
-        alert('Reviews system is not configured yet.');
+        try { db.ref('reviews').push(reviewData); } catch(err) { console.log(err); }
       }
     });
   </script>
