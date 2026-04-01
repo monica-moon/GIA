@@ -593,69 +593,63 @@
       mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('active')));
     }
 
-    // Testimonial Carousel
-    (function() {
-      const track = document.getElementById('testimonialTrack');
-      const slides = track ? track.querySelectorAll('.testimonial-slide') : [];
-      const dotsContainer = document.getElementById('carouselDots');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      let current = 0;
-      const total = slides.length;
+    // Dynamic Carousel - works with any number of slides
+    var carouselCurrent = 0;
 
-      if (!track || total === 0) return;
+    function initCarousel() {
+      var track = document.getElementById('testimonialTrack');
+      var dotsContainer = document.getElementById('carouselDots');
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      if (!track) return;
 
-      // Build dots
-      slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
-        dot.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(dot);
-      });
+      function getTotal() { return track.querySelectorAll('.testimonial-slide').length; }
 
       function goTo(index) {
-        current = (index + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === current);
+        var total = getTotal();
+        if (total === 0) return;
+        carouselCurrent = ((index % total) + total) % total;
+        track.style.transform = 'translateX(-' + (carouselCurrent * 100) + '%)';
+        dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === carouselCurrent);
         });
       }
 
-      prevBtn.addEventListener('click', () => goTo(current - 1));
-      nextBtn.addEventListener('click', () => goTo(current + 1));
+      prevBtn.addEventListener('click', function() { goTo(carouselCurrent - 1); });
+      nextBtn.addEventListener('click', function() { goTo(carouselCurrent + 1); });
 
-      // Touch / swipe support
-      let startX = 0;
-      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-      track.addEventListener('touchend', e => {
-        const diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      // Touch support
+      var startX = 0;
+      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', function(e) {
+        var diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? carouselCurrent + 1 : carouselCurrent - 1);
       }, { passive: true });
 
       // Mouse drag support
-      let dragStart = null;
-      track.addEventListener('mousedown', e => { dragStart = e.clientX; });
-      track.addEventListener('mouseup', e => {
+      var dragStart = null;
+      track.addEventListener('mousedown', function(e) { dragStart = e.clientX; });
+      track.addEventListener('mouseup', function(e) {
         if (dragStart === null) return;
-        const diff = dragStart - e.clientX;
-        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+        var diff = dragStart - e.clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? carouselCurrent + 1 : carouselCurrent - 1);
         dragStart = null;
       });
-    })();
+    }
 
-    // Helper: rebuild carousel dots for current slides
     function rebuildCarouselDots(activeIndex) {
       var track = document.getElementById('testimonialTrack');
       var dotsContainer = document.getElementById('carouselDots');
       var allSlides = track.querySelectorAll('.testimonial-slide');
       if (activeIndex === undefined) activeIndex = 0;
+      carouselCurrent = activeIndex;
       dotsContainer.innerHTML = '';
       allSlides.forEach(function(_, i) {
         var dot = document.createElement('button');
         dot.className = 'carousel-dot' + (i === activeIndex ? ' active' : '');
         dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
         dot.addEventListener('click', function() {
+          carouselCurrent = i;
           track.style.transform = 'translateX(-' + (i * 100) + '%)';
           dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, j) {
             d.classList.toggle('active', j === i);
@@ -663,7 +657,10 @@
         });
         dotsContainer.appendChild(dot);
       });
+      track.style.transform = 'translateX(-' + (activeIndex * 100) + '%)';
     }
+
+    initCarousel();
 
     // Helper: create a testimonial slide element from review data
     function createReviewSlide(r) {
