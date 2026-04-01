@@ -1,4 +1,4 @@
-11<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -35,9 +35,9 @@
     </ul>
     <a href="index.html" class="logo">
       <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
-        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
-        <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#8A6830" stroke-width="1" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#7A5828" opacity="0.7"/>
       </svg>
       GIA
     </a>
@@ -47,6 +47,7 @@
       <li><a href="events.html">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="menu-trigger" id="menuTrigger">Menu</button>
   </nav>
 
   <!-- Hero Section with "Healing with Gia" -->
@@ -145,7 +146,7 @@
             }
           </style>
           <!-- Outer sacred circle -->
-          <circle class="sacred-outer" cx="150" cy="150" r="120" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <circle class="sacred-outer" cx="150" cy="150" r="120" stroke="#7A5828" stroke-width="1.5" fill="none"/>
           <!-- Middle circle -->
           <circle class="sacred-mid" cx="150" cy="150" r="80" stroke="#8B5E7A" stroke-width="0.8" fill="none"/>
           <!-- Inner circle -->
@@ -201,14 +202,14 @@
         <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="30" cy="30" r="25" stroke="#8B5E7A" stroke-width="1" fill="none"/>
           <path d="M30 15 L30 45 M15 30 L45 30" stroke="#8B5E7A" stroke-width="0.5"/>
-          <circle cx="30" cy="30" r="8" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <circle cx="30" cy="30" r="8" stroke="#7A5828" stroke-width="1.5" fill="none"/>
         </svg>
         <h3>Holistic Coaching</h3>
         <p>Personalized guidance integrating mindfulness, nutrition, and spiritual practices for lasting transformation.</p>
       </div>
       <div class="home-service-card fade-in delay-1">
         <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 10 C20 20 15 30 15 40 C15 48 22 55 30 55 C38 55 45 48 45 40 C45 30 40 20 30 10Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+          <path d="M30 10 C20 20 15 30 15 40 C15 48 22 55 30 55 C38 55 45 48 45 40 C45 30 40 20 30 10Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
           <circle cx="30" cy="40" r="5" fill="#D4A04A" opacity="0.3"/>
         </svg>
         <h3>Energy Healing</h3>
@@ -333,7 +334,7 @@
   <section class="home-cta">
     <div class="cta-content fade-in">
       <svg class="section-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 5 L35 25 L55 25 L40 38 L45 58 L30 45 L15 58 L20 38 L5 25 L25 25 Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
+        <path d="M30 5 L35 25 L55 25 L40 38 L45 58 L30 45 L15 58 L20 38 L5 25 L25 25 Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
       </svg>
       <h2>Ready to Begin Your Healing Journey?</h2>
       <p>Take the first step toward wholeness. Schedule a complimentary discovery call to explore how we can work together.</p>
@@ -347,8 +348,8 @@
       <div class="footer-brand">
         <a href="index.html" class="logo">
           <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#D4A04A" stroke-width="1" fill="none"/>
-            <circle cx="30" cy="28" r="3" fill="#D4A04A" opacity="0.5"/>
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#7A5828" opacity="0.7"/>
           </svg>
           GIA
         </a>
@@ -546,20 +547,20 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Firebase SDK (compat version for simple script-tag usage) -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firebase SDK - uncomment these when firebase-config.js is set up -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-  <script src="firebase-config.js"></script>
+  <script src="firebase-config.js"></script> -->
 
   <script>
     // Initialize Firebase
     var db = null;
     try {
-      if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey !== 'YOUR_API_KEY_HERE') {
+      if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey !== 'YOUR_API_KEY_HERE') {
         firebase.initializeApp(firebaseConfig);
         db = firebase.database();
       }
-    } catch(e) { console.log('Firebase not configured yet'); }
+    } catch(e) { /* Firebase not configured yet */ }
 
     // Scroll Animation
     const observerOptions = {
