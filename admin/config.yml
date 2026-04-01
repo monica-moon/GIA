@@ -75,6 +75,41 @@ collections:
       - { label: "Button Text", name: "cta_text", widget: "string", default: "Register" }
       - { label: "Button Link", name: "cta_link", widget: "string", default: "contact.html" }
 
+  - name: "recipes"
+    label: "Recipes"
+    folder: "content/recipes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Smoothie"
+          - "Bowl"
+          - "Tea"
+          - "Salad"
+          - "Soup"
+          - "Snack"
+          - "Breakfast"
+          - "Juice"
+          - "Dinner"
+          - "Dessert"
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Prep Time", name: "prep_time", widget: "string" }
+      - { label: "Servings", name: "servings", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Ingredients"
+        name: "ingredients"
+        widget: "list"
+        field: { label: "Ingredient", name: "ingredient", widget: "string" }
+      - label: "Instructions"
+        name: "instructions"
+        widget: "list"
+        field: { label: "Step", name: "step", widget: "string" }
+      - { label: "Tips", name: "tips", widget: "text", required: false }
+
   - name: "testimonials"
     label: "Testimonials"
     folder: "content/testimonials"

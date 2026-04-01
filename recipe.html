@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=850">
+  <title>Recipe | Healing with Gia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
+  <style>
+    body { background-color: #A8C0A0; }
+    .page-hero.recipe-hero { background: #A8C0A0; }
+    .recipe-body { background: #A8C0A0; padding: 2rem 4rem; }
+    .recipe-detail { max-width: 800px; margin: 0 auto; }
+    .recipe-detail-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+    }
+    .recipe-detail-placeholder {
+      width: 100%;
+      height: 350px;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .recipe-detail h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #4A3050;
+      margin: 2rem 0 1rem;
+    }
+    .recipe-detail p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .recipe-detail-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .recipe-detail-meta span {
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.3);
+      border-radius: 8px;
+    }
+    .recipe-detail ol, .recipe-detail ul {
+      padding-left: 1.5rem;
+      color: var(--text-light);
+      line-height: 2;
+    }
+    .recipe-detail li {
+      margin-bottom: 0.5rem;
+    }
+    .recipe-tips {
+      background: rgba(255,255,255,0.3);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+    .recipe-tips h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #4A3050;
+    }
+    .recipe-back {
+      font-family: 'Questrial', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .recipe-back:hover { color: var(--text-dark); }
+  </style>
+</head>
+<body>
+  <nav class="nav-container">
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+    <a href="index.html" class="logo">
+      <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
+        <path d="M30 45C30 45 20 37 20 28C20 23 25 20 30 24C35 20 40 23 40 28C40 37 30 45 30 45Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
+        <circle cx="30" cy="28" r="3" fill="#7A5828" opacity="0.7"/>
+      </svg>
+      GIA
+    </a>
+    <ul class="nav-right">
+      <li><a href="writings.html">Writings</a></li>
+      <li><a href="recipes.html" class="active">Recipes</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="menu-trigger" id="menuTrigger"><div class="hamburger-icon"><span></span><span></span><span></span></div>Menu</button>
+  </nav>
+
+  <section class="page-hero recipe-hero">
+    <div class="hero-content" style="max-width: 750px;">
+      <a href="recipes.html" class="recipe-back">&larr; Back to Recipes</a>
+      <span id="recipe-category" style="font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-sage-dark);"></span>
+      <h1 id="recipe-title"></h1>
+    </div>
+  </section>
+
+  <section class="recipe-body">
+    <div class="recipe-detail">
+      <div id="recipe-image-container"></div>
+      <div class="recipe-detail-meta">
+        <span id="recipe-time"></span>
+        <span id="recipe-servings"></span>
+      </div>
+      <p id="recipe-description"></p>
+
+      <h2>Ingredients</h2>
+      <ul id="recipe-ingredients"></ul>
+
+      <h2>Instructions</h2>
+      <ol id="recipe-instructions"></ol>
+
+      <div id="recipe-tips-container"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-symbol" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50C30 50 15 40 15 28C15 20 22 15 30 20C38 15 45 20 45 28C45 40 30 50 30 50Z" stroke="#7A5828" stroke-width="1.5" fill="none"/>
+            <circle cx="30" cy="28" r="3" fill="#7A5828" opacity="0.7"/>
+          </svg>
+          GIA
+        </a>
+        <p>Guiding souls toward wholeness through the sacred connection of mind, body, and spirit.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="writings.html">Writings</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:integreativehealth.beauty@gmail.com">Email</a></li>
+        </ul>
+        <div class="social-links" style="margin-top: 1rem;">
+          <a href="https://www.instagram.com/gia_healthcoach?igsh=NTc4MTIwNjQ2YQ%3D%3D" aria-label="Instagram" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/lusnord?mibextid=wwXIfr" aria-label="Facebook" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Healing with Gia. All rights reserved. Made with love and light.</p>
+    </div>
+  </footer>
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="menu-close" id="menuClose">Close</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="writings.html">Writings</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <script>
+    // Recipe data - each recipe has a slug that matches the URL parameter
+    var recipes = {
+      'golden-turmeric-healing-smoothie': {
+        title: 'Golden Turmeric Healing Smoothie',
+        category: 'Smoothie',
+        time: '5 min',
+        servings: '1 serving',
+        color: '#6A8E5C',
+        description: 'A vibrant anti-inflammatory blend with turmeric, mango, ginger, and coconut milk that supports digestion and reduces inflammation.',
+        ingredients: ['1 cup coconut milk', '1/2 cup frozen mango', '1 tsp turmeric powder', '1/2 tsp fresh ginger, grated', '1 tbsp honey or maple syrup', '1/4 tsp black pepper', '1/2 banana', 'Ice cubes'],
+        instructions: ['Add coconut milk and frozen mango to a blender.', 'Add turmeric, ginger, honey, and black pepper.', 'Add banana and a handful of ice cubes.', 'Blend on high until smooth and creamy.', 'Pour into a glass and enjoy immediately.'],
+        tips: 'Black pepper helps your body absorb the curcumin in turmeric by up to 2000%. Never skip it!'
+      },
+      'warm-quinoa-buddha-bowl': {
+        title: 'Warm Quinoa Buddha Bowl',
+        category: 'Bowl',
+        time: '30 min',
+        servings: '2 servings',
+        color: '#8E6A5C',
+        description: 'A grounding bowl with roasted sweet potato, quinoa, tahini drizzle, avocado, and toasted seeds for sustained energy throughout the day.',
+        ingredients: ['1 cup quinoa', '1 large sweet potato, cubed', '1 avocado, sliced', '2 tbsp tahini', '1 tbsp lemon juice', '2 cups mixed greens', '2 tbsp pumpkin seeds', '1 tbsp olive oil', 'Salt and pepper to taste'],
+        instructions: ['Cook quinoa according to package instructions.', 'Toss sweet potato cubes with olive oil, salt, and pepper. Roast at 400F for 25 minutes.', 'Mix tahini with lemon juice and a splash of water to make a drizzle.', 'Assemble bowls with quinoa, roasted sweet potato, greens, and avocado.', 'Top with pumpkin seeds and drizzle with tahini sauce.'],
+        tips: 'Make extra quinoa and sweet potato for meal prep. This bowl keeps well for 2 days in the fridge (add avocado fresh).'
+      },
+      'lavender-moon-milk': {
+        title: 'Lavender Moon Milk',
+        category: 'Tea',
+        time: '10 min',
+        servings: '1 serving',
+        color: '#5C6A8E',
+        description: 'A calming bedtime elixir with warm oat milk, dried lavender, ashwagandha, raw honey, and a touch of vanilla for deep restful sleep.',
+        ingredients: ['1 cup oat milk', '1 tsp dried lavender buds', '1/2 tsp ashwagandha powder', '1 tsp raw honey', '1/4 tsp vanilla extract', 'Pinch of cinnamon'],
+        instructions: ['Gently warm oat milk in a small saucepan over medium-low heat.', 'Add dried lavender buds and let steep for 3-4 minutes.', 'Strain out the lavender buds.', 'Whisk in ashwagandha, honey, vanilla, and cinnamon.', 'Pour into your favorite mug and sip slowly before bed.'],
+        tips: 'Drink this 30 minutes before bed for best results. Ashwagandha is an adaptogen that helps your body manage stress.'
+      },
+      'detox-green-goddess-salad': {
+        title: 'Detox Green Goddess Salad',
+        category: 'Salad',
+        time: '15 min',
+        servings: '2 servings',
+        color: '#7A8E5C',
+        description: 'A cleansing salad with mixed greens, cucumber, avocado, sprouts, hemp seeds, and a lemon-herb dressing to reset your system.',
+        ingredients: ['4 cups mixed greens', '1 cucumber, diced', '1 avocado, cubed', '1/2 cup sprouts', '2 tbsp hemp seeds', '2 tbsp olive oil', '1 lemon, juiced', '1 tbsp fresh dill, chopped', 'Salt and pepper to taste'],
+        instructions: ['Wash and dry the mixed greens. Place in a large bowl.', 'Add cucumber, avocado, and sprouts on top.', 'Whisk together olive oil, lemon juice, dill, salt, and pepper.', 'Drizzle dressing over the salad and toss gently.', 'Sprinkle hemp seeds on top and serve immediately.'],
+        tips: 'Best enjoyed as a midday meal. The combination of healthy fats from avocado and hemp seeds will keep you satisfied for hours.'
+      },
+      'ayurvedic-kitchari': {
+        title: 'Ayurvedic Kitchari',
+        category: 'Soup',
+        time: '40 min',
+        servings: '4 servings',
+        color: '#8E7A5C',
+        description: 'A traditional healing stew of mung beans, basmati rice, and gentle spices. The ultimate comfort food for digestive reset and gentle detox.',
+        ingredients: ['1/2 cup split mung beans', '1/2 cup basmati rice', '1 tbsp ghee', '1 tsp cumin seeds', '1 tsp turmeric', '1/2 tsp coriander powder', '1/2 tsp fresh ginger, grated', '4 cups water', 'Salt to taste', 'Fresh cilantro for garnish'],
+        instructions: ['Rinse mung beans and rice together until water runs clear.', 'Heat ghee in a pot over medium heat. Add cumin seeds and let them sizzle.', 'Add turmeric, coriander, and ginger. Stir for 30 seconds.', 'Add the rinsed mung beans and rice. Stir to coat with spices.', 'Add 4 cups water and bring to a boil.', 'Reduce heat to low, cover, and simmer for 30 minutes until soft and porridge-like.', 'Season with salt and garnish with fresh cilantro.'],
+        tips: 'Kitchari is the go-to Ayurvedic cleanse food. Eat it for 3 days to give your digestive system a gentle reset.'
+      },
+      'cacao-bliss-energy-bites': {
+        title: 'Cacao Bliss Energy Bites',
+        category: 'Snack',
+        time: '15 min',
+        servings: '12 bites',
+        color: '#5C8E7A',
+        description: 'Raw cacao, dates, almond butter, and maca powder rolled into bliss balls. A guilt-free treat that boosts mood and energy naturally.',
+        ingredients: ['1 cup medjool dates, pitted', '1/4 cup raw cacao powder', '2 tbsp almond butter', '1 tsp maca powder', '1/4 cup shredded coconut', '1 tbsp coconut oil', 'Pinch of sea salt', 'Extra coconut for rolling'],
+        instructions: ['Add dates to a food processor and pulse until they form a sticky paste.', 'Add cacao powder, almond butter, maca, shredded coconut, coconut oil, and salt.', 'Process until well combined and mixture holds together.', 'Roll into 12 small balls using your hands.', 'Roll each ball in extra shredded coconut.', 'Refrigerate for at least 30 minutes before enjoying.'],
+        tips: 'Store in the fridge for up to a week, or freeze for up to a month. Maca is known for its energy-boosting and hormone-balancing properties.'
+      },
+      'overnight-chia-pudding': {
+        title: 'Overnight Chia Pudding',
+        category: 'Breakfast',
+        time: '5 min + overnight',
+        servings: '1 serving',
+        color: '#6A5C8E',
+        description: 'Creamy chia seeds soaked in almond milk with fresh berries, toasted coconut, and a drizzle of raw honey for a nourishing morning start.',
+        ingredients: ['3 tbsp chia seeds', '1 cup almond milk', '1 tsp vanilla extract', '1 tbsp raw honey or maple syrup', '1/4 cup fresh berries', '1 tbsp toasted coconut flakes', '1 tbsp sliced almonds'],
+        instructions: ['Mix chia seeds, almond milk, vanilla, and honey in a jar.', 'Stir well to prevent clumping.', 'Cover and refrigerate overnight (at least 6 hours).', 'In the morning, stir the pudding and add more milk if too thick.', 'Top with fresh berries, toasted coconut, and sliced almonds.'],
+        tips: 'Prep multiple jars on Sunday for easy breakfasts all week. Chia seeds are packed with omega-3s, fiber, and protein.'
+      },
+      'beet-root-glow-juice': {
+        title: 'Beet Root Glow Juice',
+        category: 'Juice',
+        time: '10 min',
+        servings: '1 serving',
+        color: '#8E5C6A',
+        description: 'A vibrant cold-pressed blend of beet, carrot, apple, ginger, and lemon that supports liver health and gives your skin a natural glow.',
+        ingredients: ['1 medium beet, peeled', '2 carrots', '1 apple', '1 inch fresh ginger', '1/2 lemon, peeled', '1/2 cup water (if using blender)'],
+        instructions: ['Wash and prep all produce.', 'If using a juicer, feed all ingredients through the juicer.', 'If using a blender, chop everything, add water, blend on high, and strain through a nut milk bag.', 'Pour over ice and enjoy immediately for maximum nutrients.'],
+        tips: 'Drink on an empty stomach in the morning for the best detox benefits. Beets support liver detoxification and blood purification.'
+      },
+      'herb-crusted-salmon-with-greens': {
+        title: 'Herb-Crusted Salmon with Greens',
+        category: 'Dinner',
+        time: '25 min',
+        servings: '2 servings',
+        color: '#5C8E5C',
+        description: 'Wild-caught salmon with a rosemary-thyme crust served over sauteed greens with garlic and lemon. Rich in omega-3s for brain and heart health.',
+        ingredients: ['2 salmon fillets (wild-caught)', '1 tbsp fresh rosemary, chopped', '1 tbsp fresh thyme, chopped', '2 cloves garlic, minced', '4 cups mixed greens (kale, spinach)', '2 tbsp olive oil', '1 lemon', 'Salt and pepper to taste'],
+        instructions: ['Preheat oven to 400F.', 'Mix rosemary, thyme, half the garlic, 1 tbsp olive oil, salt, and pepper.', 'Press the herb mixture onto the top of each salmon fillet.', 'Place salmon on a lined baking sheet and bake for 12-15 minutes.', 'Meanwhile, heat remaining olive oil in a pan. Saute remaining garlic for 30 seconds.', 'Add greens and cook until wilted, about 2-3 minutes. Squeeze lemon over top.', 'Serve salmon over the bed of sauteed greens.'],
+        tips: 'Always choose wild-caught over farm-raised salmon for higher omega-3 content and fewer contaminants.'
+      }
+    };
+
+    // Get recipe slug from URL
+    var params = new URLSearchParams(window.location.search);
+    var slug = params.get('r');
+    var recipe = recipes[slug];
+
+    if (recipe) {
+      document.title = recipe.title + ' | Healing with Gia';
+      document.getElementById('recipe-title').textContent = recipe.title;
+      document.getElementById('recipe-category').textContent = recipe.category;
+      document.getElementById('recipe-time').textContent = recipe.time;
+      document.getElementById('recipe-servings').textContent = recipe.servings;
+      document.getElementById('recipe-description').textContent = recipe.description;
+
+      // Image
+      var imgContainer = document.getElementById('recipe-image-container');
+      if (recipe.image) {
+        imgContainer.innerHTML = '<img src="' + recipe.image + '" alt="' + recipe.title + '" class="recipe-detail-image">';
+      } else {
+        imgContainer.innerHTML = '<div class="recipe-detail-placeholder" style="background: linear-gradient(135deg, ' + recipe.color + ', ' + recipe.color + '88);"></div>';
+      }
+
+      // Ingredients
+      var ingredientsList = document.getElementById('recipe-ingredients');
+      recipe.ingredients.forEach(function(item) {
+        var li = document.createElement('li');
+        li.textContent = item;
+        ingredientsList.appendChild(li);
+      });
+
+      // Instructions
+      var instructionsList = document.getElementById('recipe-instructions');
+      recipe.instructions.forEach(function(step) {
+        var li = document.createElement('li');
+        li.textContent = step;
+        instructionsList.appendChild(li);
+      });
+
+      // Tips
+      if (recipe.tips) {
+        var tipsContainer = document.getElementById('recipe-tips-container');
+        tipsContainer.innerHTML = '<div class="recipe-tips"><h3>Wellness Tip</h3><p>' + recipe.tips + '</p></div>';
+      }
+    } else {
+      document.getElementById('recipe-title').textContent = 'Recipe Not Found';
+      document.querySelector('.recipe-body').innerHTML = '<div style="text-align:center; padding: 3rem;"><p>This recipe could not be found.</p><a href="recipes.html" class="btn">Back to Recipes</a></div>';
+    }
+
+    // Nav scroll
+    window.addEventListener('scroll', function() {
+      var nav = document.querySelector('.nav-container');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // Menu
+    var menuTrigger = document.getElementById('menuTrigger');
+    var menuClose = document.getElementById('menuClose');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (menuTrigger && mobileMenu) {
+      menuTrigger.addEventListener('click', function() { mobileMenu.classList.add('active'); });
+      menuClose.addEventListener('click', function() { mobileMenu.classList.remove('active'); });
+      mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { mobileMenu.classList.remove('active'); }); });
+    }
+  </script>
+</body>
+</html>

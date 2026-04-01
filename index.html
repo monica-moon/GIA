@@ -676,26 +676,17 @@
       return slide;
     }
 
-    // Load reviews from Firebase Realtime Database
+    // Load saved reviews from localStorage
     (function() {
       var track = document.getElementById('testimonialTrack');
-      db.ref('reviews').once('value').then(function(snapshot) {
-        var reviews = snapshot.val();
-        if (reviews) {
-          Object.keys(reviews).forEach(function(key) {
-            track.appendChild(createReviewSlide(reviews[key]));
-          });
-        }
-        // Rebuild dots after all Firebase reviews are appended
-        rebuildCarouselDots(0);
-      }).catch(function(err) {
-        console.error('Firebase read error:', err);
-        // Still rebuild dots even if Firebase fails
-        rebuildCarouselDots(0);
+      var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+      saved.forEach(function(r) {
+        track.appendChild(createReviewSlide(r));
       });
+      rebuildCarouselDots(0);
     })();
 
-    // Review form submission — save to Firebase and update carousel
+    // Review form submission
     document.getElementById('reviewForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var name = document.getElementById('reviewName').value.trim();
@@ -703,26 +694,23 @@
       var quote = document.getElementById('reviewQuote').value.trim();
       if (!name || !quote) return;
 
-      var reviewData = { name: name, role: role, quote: quote, timestamp: Date.now() };
+      var reviewData = { name: name, role: role, quote: quote };
 
-      // Push to Firebase Realtime Database
-      db.ref('reviews').push(reviewData).then(function() {
-        // Add slide immediately
-        var track = document.getElementById('testimonialTrack');
-        track.appendChild(createReviewSlide(reviewData));
+      // Save to localStorage
+      var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+      saved.push(reviewData);
+      localStorage.setItem('giaReviews', JSON.stringify(saved));
 
-        // Rebuild dots and navigate to new review
-        var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
-        rebuildCarouselDots(newIndex);
-        track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
+      // Add slide immediately
+      var track = document.getElementById('testimonialTrack');
+      track.appendChild(createReviewSlide(reviewData));
 
-        // Reset form
-        e.target.reset();
-        alert('Thank you for sharing your experience!');
-      }).catch(function(err) {
-        console.error('Firebase write error:', err);
-        alert('Sorry, there was an error saving your review. Please try again.');
-      });
+      var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
+      rebuildCarouselDots(newIndex);
+      track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
+
+      e.target.reset();
+      alert('Thank you for sharing your experience!');
     });
   </script>
 </body>
