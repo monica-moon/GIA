@@ -675,27 +675,38 @@
       return slide;
     }
 
-    // Load reviews from Firebase
+    // Load reviews - try Firebase first, fall back to localStorage
     (function() {
       var track = document.getElementById('testimonialTrack');
+      var loaded = false;
       try {
         if (db) {
           db.ref('reviews').once('value').then(function(snapshot) {
             var reviews = snapshot.val();
             if (reviews) {
+              loaded = true;
               Object.keys(reviews).forEach(function(key) {
                 track.appendChild(createReviewSlide(reviews[key]));
               });
             }
+            if (!loaded) {
+              var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+              saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
+            }
             rebuildCarouselDots(0);
           }).catch(function() {
+            var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+            saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
             rebuildCarouselDots(0);
           });
         } else {
+          var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+          saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
           rebuildCarouselDots(0);
         }
       } catch(e) {
-        console.log('Firebase load error:', e);
+        var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+        saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
         rebuildCarouselDots(0);
       }
     })();
@@ -719,7 +730,12 @@
       e.target.reset();
       alert('Thank you for sharing your experience!');
 
-      // Save to Firebase in background
+      // Save to localStorage
+      var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
+      saved.push(reviewData);
+      localStorage.setItem('giaReviews', JSON.stringify(saved));
+
+      // Also save to Firebase
       if (db) {
         try { db.ref('reviews').push(reviewData); } catch(err) { console.log(err); }
       }
