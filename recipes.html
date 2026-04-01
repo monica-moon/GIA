@@ -34,9 +34,7 @@
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
+      flex: 0 0 280px;
     }
 
     .recipe-card:hover {
@@ -45,9 +43,7 @@
     }
 
     .recipe-image {
-      width: 180px;
-      min-height: 140px;
-      flex-shrink: 0;
+      height: 180px;
       background: linear-gradient(135deg, #7E5C8C, #5E4070);
       display: flex;
       align-items: center;
@@ -106,11 +102,13 @@
     }
 
     .recipes-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
+      padding-bottom: 1rem;
     }
   </style>
 </head>
