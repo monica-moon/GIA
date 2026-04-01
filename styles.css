@@ -92,10 +92,11 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 2rem 4rem;
+  padding: 1.5rem 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 2.5rem;
   background: transparent;
   transition: var(--transition);
 }
@@ -108,9 +109,9 @@ body {
 
 .logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 300;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.4em;
   color: var(--text-dark);
   text-decoration: none;
   display: flex;
@@ -124,25 +125,46 @@ body {
   opacity: 0.8;
 }
 
-.nav-links {
-  display: none;
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-left {
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.nav-right {
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.nav-left a,
+.nav-right a {
+  font-family: 'Questrial', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: var(--text-dark);
+}
+
+.nav-left a.active,
+.nav-right a.active {
+  color: var(--text-dark);
 }
 
 .menu-trigger {
-  font-family: 'Questrial', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-dark);
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  padding: 0.5rem 0;
-}
-
-.menu-trigger:hover {
-  color: var(--accent-gold);
+  display: none;
 }
 
 /* Mobile Navigation */
