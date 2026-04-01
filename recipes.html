@@ -28,14 +28,23 @@
       background: #A8C0A0;
     }
 
+    .recipes-container a.recipe-link {
+      flex: 0 0 350px;
+      scroll-snap-align: start;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+    }
+
     .recipe-card {
       background: rgba(255, 255, 255, 0.4);
       border-radius: 16px;
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
-      flex: 0 0 350px;
-      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
 
     .recipe-card:hover {
@@ -50,6 +59,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      flex-shrink: 0;
     }
 
     .recipe-image svg {
@@ -73,6 +83,9 @@
 
     .recipe-content {
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .recipe-content h3 {
@@ -87,6 +100,7 @@
       color: var(--text-light);
       margin-bottom: 1rem;
       line-height: 1.6;
+      flex: 1;
     }
 
     .recipe-meta {
@@ -94,6 +108,7 @@
       gap: 1.5rem;
       font-size: 0.8rem;
       color: var(--text-light);
+      margin-top: auto;
     }
 
     .recipe-meta span {
@@ -159,7 +174,7 @@
   <section class="recipes-grid-section" style="padding: 2.5rem 4rem;">
     <div class="recipes-container">
 
-      <a href="recipe.html?r=golden-turmeric-healing-smoothie" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in">
+      <a href="recipe.html?r=golden-turmeric-healing-smoothie" class="recipe-link"><div class="recipe-card fade-in">
         <div class="recipe-image" style="background: linear-gradient(135deg, #6A8E5C, #4A6E3C);">
           <span class="recipe-category">Smoothie</span>
         </div>
@@ -173,7 +188,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=warm-quinoa-buddha-bowl" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in delay-1">
+      <a href="recipe.html?r=warm-quinoa-buddha-bowl" class="recipe-link"><div class="recipe-card fade-in delay-1">
         <div class="recipe-image" style="background: linear-gradient(135deg, #8E6A5C, #6E4A3C);">
           <span class="recipe-category">Bowl</span>
         </div>
@@ -187,7 +202,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=lavender-moon-milk" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in delay-2">
+      <a href="recipe.html?r=lavender-moon-milk" class="recipe-link"><div class="recipe-card fade-in delay-2">
         <div class="recipe-image" style="background: linear-gradient(135deg, #5C6A8E, #3C4A6E);">
           <span class="recipe-category">Tea</span>
         </div>
@@ -201,7 +216,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=detox-green-goddess-salad" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in">
+      <a href="recipe.html?r=detox-green-goddess-salad" class="recipe-link"><div class="recipe-card fade-in">
         <div class="recipe-image" style="background: linear-gradient(135deg, #7A8E5C, #5A6E3C);">
           <span class="recipe-category">Salad</span>
         </div>
@@ -215,7 +230,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=ayurvedic-kitchari" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in delay-1">
+      <a href="recipe.html?r=ayurvedic-kitchari" class="recipe-link"><div class="recipe-card fade-in delay-1">
         <div class="recipe-image" style="background: linear-gradient(135deg, #8E7A5C, #6E5A3C);">
           <span class="recipe-category">Soup</span>
         </div>
@@ -229,7 +244,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=cacao-bliss-energy-bites" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in delay-2">
+      <a href="recipe.html?r=cacao-bliss-energy-bites" class="recipe-link"><div class="recipe-card fade-in delay-2">
         <div class="recipe-image" style="background: linear-gradient(135deg, #5C8E7A, #3C6E5A);">
           <span class="recipe-category">Snack</span>
         </div>
@@ -243,7 +258,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=overnight-chia-pudding" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in">
+      <a href="recipe.html?r=overnight-chia-pudding" class="recipe-link"><div class="recipe-card fade-in">
         <div class="recipe-image" style="background: linear-gradient(135deg, #6A5C8E, #4A3C6E);">
           <span class="recipe-category">Breakfast</span>
         </div>
@@ -257,7 +272,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=beet-root-glow-juice" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in delay-1">
+      <a href="recipe.html?r=beet-root-glow-juice" class="recipe-link"><div class="recipe-card fade-in delay-1">
         <div class="recipe-image" style="background: linear-gradient(135deg, #8E5C6A, #6E3C4A);">
           <span class="recipe-category">Juice</span>
         </div>
@@ -271,7 +286,7 @@
         </div>
       </div></a>
 
-      <a href="recipe.html?r=herb-crusted-salmon-with-greens" style="text-decoration: none; color: inherit; display: block;"><div class="recipe-card fade-in delay-2">
+      <a href="recipe.html?r=herb-crusted-salmon-with-greens" class="recipe-link"><div class="recipe-card fade-in delay-2">
         <div class="recipe-image" style="background: linear-gradient(135deg, #5C8E5C, #3C6E3C);">
           <span class="recipe-category">Dinner</span>
         </div>

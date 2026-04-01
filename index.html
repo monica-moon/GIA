@@ -293,19 +293,8 @@
           <div class="testimonial-author" style="justify-content: center;">
             <div class="author-avatar"><span>J</span></div>
             <div class="author-info">
-              <h4>Jessica W.</h4>
-              <p>Group Workshop Participant</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-slide">
-          <blockquote>"Gia's spiritual mentorship gave me the courage to trust my own inner knowing. I came to her feeling lost and disconnected. Now I have a clear sense of purpose and a daily practice that nourishes my soul."</blockquote>
-          <div class="testimonial-author" style="justify-content: center;">
-            <div class="author-avatar"><span>R</span></div>
-            <div class="author-info">
-              <h4>Rachel D.</h4>
-              <p>Spiritual Mentorship Client</p>
+              <h4>Jasmine W.</h4>
+              <p>Healing Circle Participant</p>
             </div>
           </div>
         </div>
@@ -673,17 +662,31 @@
       return slide;
     }
 
-    // Load reviews from Firestore
+    // Load reviews from Firestore and merge with static testimonials
     (function() {
       var track = document.getElementById('testimonialTrack');
+
+      // Collect existing static testimonials for dedup
+      var existingKeys = {};
+      var staticSlides = track.querySelectorAll('.testimonial-slide');
+      staticSlides.forEach(function(slide) {
+        var name = slide.querySelector('h4') ? slide.querySelector('h4').textContent.trim() : '';
+        var quote = slide.querySelector('blockquote') ? slide.querySelector('blockquote').textContent.trim() : '';
+        existingKeys[name + '||' + quote] = true;
+      });
+
       if (db) {
         db.collection('testimonials').get().then(function(snapshot) {
           snapshot.forEach(function(doc) {
             var data = doc.data();
-            track.appendChild(createReviewSlide({ name: data.name, role: data.role, quote: data.message }));
+            var key = data.name + '||"' + data.message + '"';
+            if (!existingKeys[key]) {
+              track.appendChild(createReviewSlide({ name: data.name, role: data.role, quote: data.message }));
+              existingKeys[key] = true;
+            }
           });
           rebuildCarouselDots(0);
-          console.log('Loaded ' + snapshot.size + ' reviews from Firestore');
+          console.log('Loaded ' + snapshot.size + ' reviews from Firestore (merged with static)');
         }).catch(function(err) {
           console.log('Firestore load error:', err);
           rebuildCarouselDots(0);
