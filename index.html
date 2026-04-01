@@ -1,8 +1,8 @@
-1<!DOCTYPE html>
+11<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=850">
+  <meta name="viewport" content="width=780">
   <title>Healing with Gia | Mind, Body, Spirit Wellness</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>">
@@ -553,8 +553,13 @@
 
   <script>
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.database();
+    var db = null;
+    try {
+      if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey !== 'YOUR_API_KEY_HERE') {
+        firebase.initializeApp(firebaseConfig);
+        db = firebase.database();
+      }
+    } catch(e) { console.log('Firebase not configured yet'); }
 
     // Scroll Animation
     const observerOptions = {
