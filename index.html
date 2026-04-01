@@ -543,18 +543,19 @@
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
 
   <script>
     // Initialize Firebase
     var db = null;
     try {
-      if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey !== 'YOUR_API_KEY_HERE') {
+      if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined') {
         firebase.initializeApp(firebaseConfig);
-        db = firebase.database();
+        db = firebase.firestore();
+        console.log('Firebase Firestore initialized');
       }
-    } catch(e) { /* Firebase not configured yet */ }
+    } catch(e) { console.log('Firebase init error:', e); }
 
     // Scroll Animation
     const observerOptions = {
@@ -675,38 +676,22 @@
       return slide;
     }
 
-    // Load reviews - try Firebase first, fall back to localStorage
+    // Load reviews from Firestore
     (function() {
       var track = document.getElementById('testimonialTrack');
-      var loaded = false;
-      try {
-        if (db) {
-          db.ref('reviews').once('value').then(function(snapshot) {
-            var reviews = snapshot.val();
-            if (reviews) {
-              loaded = true;
-              Object.keys(reviews).forEach(function(key) {
-                track.appendChild(createReviewSlide(reviews[key]));
-              });
-            }
-            if (!loaded) {
-              var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-              saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
-            }
-            rebuildCarouselDots(0);
-          }).catch(function() {
-            var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-            saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
-            rebuildCarouselDots(0);
+      if (db) {
+        db.collection('testimonials').orderBy('timestamp', 'asc').get().then(function(snapshot) {
+          snapshot.forEach(function(doc) {
+            var data = doc.data();
+            track.appendChild(createReviewSlide({ name: data.name, role: data.role, quote: data.message }));
           });
-        } else {
-          var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-          saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
           rebuildCarouselDots(0);
-        }
-      } catch(e) {
-        var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-        saved.forEach(function(r) { track.appendChild(createReviewSlide(r)); });
+          console.log('Loaded ' + snapshot.size + ' reviews from Firestore');
+        }).catch(function(err) {
+          console.log('Firestore load error:', err);
+          rebuildCarouselDots(0);
+        });
+      } else {
         rebuildCarouselDots(0);
       }
     })();
@@ -719,25 +704,28 @@
       var quote = document.getElementById('reviewQuote').value.trim();
       if (!name || !quote) return;
 
-      var reviewData = { name: name, role: role, quote: quote, timestamp: Date.now() };
-
-      // Add slide immediately
-      var track = document.getElementById('testimonialTrack');
-      track.appendChild(createReviewSlide(reviewData));
-      var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
-      rebuildCarouselDots(newIndex);
-      track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
-      e.target.reset();
-      alert('Thank you for sharing your experience!');
-
-      // Save to localStorage
-      var saved = JSON.parse(localStorage.getItem('giaReviews') || '[]');
-      saved.push(reviewData);
-      localStorage.setItem('giaReviews', JSON.stringify(saved));
-
-      // Also save to Firebase
       if (db) {
-        try { db.ref('reviews').push(reviewData); } catch(err) { console.log(err); }
+        db.collection('testimonials').add({
+          name: name,
+          role: role,
+          message: quote,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(function() {
+          console.log('Saved');
+          // Add slide immediately
+          var track = document.getElementById('testimonialTrack');
+          track.appendChild(createReviewSlide({ name: name, role: role, quote: quote }));
+          var newIndex = track.querySelectorAll('.testimonial-slide').length - 1;
+          rebuildCarouselDots(newIndex);
+          track.style.transform = 'translateX(-' + (newIndex * 100) + '%)';
+          e.target.reset();
+          alert('Thank you for sharing your experience!');
+        }).catch(function(err) {
+          console.log('Firestore save error:', err);
+          alert('Sorry, there was an error saving your review.');
+        });
+      } else {
+        alert('Reviews system is not available right now.');
       }
     });
   </script>
